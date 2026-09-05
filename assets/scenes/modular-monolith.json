@@ -1,0 +1,338 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "orange",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 23,
+      "id": "network-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 390,
+      "target": "network",
+      "targetAnchor": "bottom",
+      "text": "Distribute for independent scaling or ownership; budget for failures.",
+      "x": 170,
+      "y": 410
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "mint",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "boundary-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 240,
+      "targetAnchor": "top",
+      "text": "One deploy. Explicit module APIs. No cross-schema shortcuts.",
+      "x": 280,
+      "y": 626
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "service-a",
+      "fromAnchor": "right",
+      "id": "service-network",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "RPC"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "network",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "network",
+      "fromAnchor": "right",
+      "id": "network-service",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "timeout?"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "service-b",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "module-a",
+      "fromAnchor": "bottom",
+      "id": "module-a-db",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "orders only"
+      },
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "shared-db",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 150,
+          "y": 842
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "module-b",
+      "fromAnchor": "bottom",
+      "id": "module-b-db",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "billing only"
+      },
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "shared-db",
+      "toAnchor": "right",
+      "waypoints": [
+        {
+          "x": 650,
+          "y": 842
+        }
+      ]
+    }
+  ],
+  "grain": false,
+  "id": "modular-monolith",
+  "layout": {
+    "divider": {
+      "style": "dotted"
+    },
+    "kind": "split-comparison",
+    "sections": [
+      {
+        "colorRole": "orange",
+        "h": 344,
+        "header": "MICROSERVICES / NETWORK SEAM",
+        "headerStyle": "chip",
+        "id": "section-a",
+        "labelAlign": "left",
+        "y": 156
+      },
+      {
+        "colorRole": "mint",
+        "h": 440,
+        "header": "MODULAR MONOLITH / CODE SEAM",
+        "headerStyle": "chip",
+        "id": "section-b",
+        "labelAlign": "left",
+        "y": 500
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "colorRole": "orange",
+      "h": 96,
+      "id": "service-a",
+      "label": "Service A",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Independent deploy",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 65,
+      "y": 265
+    },
+    {
+      "colorRole": "magenta",
+      "h": 96,
+      "id": "network",
+      "label": "Network",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Latency + retries",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 315,
+      "y": 265
+    },
+    {
+      "colorRole": "orange",
+      "h": 96,
+      "id": "service-b",
+      "label": "Service B",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Independent deploy",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 565,
+      "y": 265
+    },
+    {
+      "colorRole": "mint",
+      "h": 96,
+      "id": "module-a",
+      "label": "Module A",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Owns orders schema",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 65,
+      "y": 608
+    },
+    {
+      "colorRole": "mint",
+      "h": 96,
+      "id": "module-b",
+      "label": "Module B",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Owns billing schema",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 565,
+      "y": 608
+    },
+    {
+      "colorRole": "cyan",
+      "h": 110,
+      "icon": {
+        "name": "postgresql",
+        "size": 28,
+        "source": "brand"
+      },
+      "id": "shared-db",
+      "label": "Shared DB",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "PostgreSQL / private schemas",
+      "shape": "database",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 180,
+      "x": 310,
+      "y": 787
+    }
+  ],
+  "theme": "ink",
+  "timeline": {
+    "animations": [
+      {
+        "cycles": 18,
+        "cyclesPerLoop": 18,
+        "dash": 7,
+        "edgeIds": [
+          "service-network",
+          "network-service",
+          "module-a-db",
+          "module-b-db"
+        ],
+        "effectiveSpeedPxPerSec": 42,
+        "gap": 7,
+        "kind": "marching-dash",
+        "speedPxPerSec": 50
+      },
+      {
+        "cycles": 2,
+        "cyclesPerLoop": 2,
+        "effectivePeriodMs": 3000,
+        "kind": "pulse",
+        "nodeIds": [
+          "network"
+        ],
+        "scale": 1.035
+      }
+    ],
+    "durationMs": 6000,
+    "fps": 25,
+    "grids": {
+      "40": 150,
+      "50": 120
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "orange",
+        "word": "seam"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Microservices to modular monolith:",
+      "choose the seam"
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 35,
+    "subtitle": {
+      "font": "condensed",
+      "size": 18,
+      "text": "BOUNDARIES FIRST. DISTRIBUTION WHEN IT EARNS ITS COST."
+    },
+    "text": "Microservices to modular monolith: choose the seam",
+    "x": 400,
+    "y": 58
+  },
+  "warnings": []
+}

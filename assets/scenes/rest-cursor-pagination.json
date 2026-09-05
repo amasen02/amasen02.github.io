@@ -1,0 +1,401 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": true,
+      "attachTo": "offset",
+      "curve": "auto",
+      "font": "annotation",
+      "id": "bad",
+      "kind": "cross",
+      "language": "text",
+      "maxWidth": 190,
+      "targetAnchor": "top"
+    },
+    {
+      "align": "left",
+      "arrow": true,
+      "attachTo": "rows",
+      "curve": "auto",
+      "font": "annotation",
+      "id": "good",
+      "kind": "check",
+      "language": "text",
+      "maxWidth": 190,
+      "targetAnchor": "top"
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "danger",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "rank-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 320,
+      "target": "offset",
+      "targetAnchor": "bottom",
+      "text": "Inserts move positions. The offset stays fixed.",
+      "x": 64,
+      "y": 402
+    },
+    {
+      "align": "left",
+      "arrow": true,
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 16,
+      "id": "offset-code",
+      "kind": "code",
+      "language": "sql",
+      "lines": [
+        {
+          "text": "ORDER BY id DESC"
+        },
+        {
+          "text": "LIMIT 2 OFFSET 2;"
+        }
+      ],
+      "maxWidth": 190,
+      "targetAnchor": "top",
+      "w": 290,
+      "x": 440,
+      "y": 401
+    },
+    {
+      "align": "left",
+      "arrow": true,
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 17,
+      "id": "cursor-code",
+      "kind": "code",
+      "language": "sql",
+      "lines": [
+        {
+          "text": "SELECT * FROM items"
+        },
+        {
+          "band": "mint",
+          "text": "WHERE id < :cursor"
+        },
+        {
+          "text": "ORDER BY id DESC"
+        },
+        {
+          "text": "LIMIT 2;"
+        }
+      ],
+      "maxWidth": 190,
+      "targetAnchor": "top",
+      "w": 385,
+      "x": 64,
+      "y": 764
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 21,
+      "id": "key-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 234,
+      "targetAnchor": "top",
+      "text": "Use an immutable, unique sort key. A cursor is not a snapshot.",
+      "x": 500,
+      "y": 782
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "danger",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "insert",
+      "fromAnchor": "right",
+      "id": "insert-offset",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "shift"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "offset",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "danger",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "offset",
+      "fromAnchor": "right",
+      "id": "offset-duplicate",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "skip 2"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "duplicate",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "cursor",
+      "fromAnchor": "right",
+      "id": "cursor-next",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "seek"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "next_page",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "next_page",
+      "fromAnchor": "right",
+      "id": "next-rows",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "take 2"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "rows",
+      "toAnchor": "left"
+    }
+  ],
+  "grain": true,
+  "id": "rest-cursor-pagination",
+  "layout": {
+    "divider": {
+      "style": "dotted"
+    },
+    "kind": "split-comparison",
+    "sections": [
+      {
+        "colorRole": "orange",
+        "h": 344,
+        "header": "OFFSET / ROW POSITIONS",
+        "headerStyle": "chip",
+        "id": "section-a",
+        "labelAlign": "left",
+        "y": 156
+      },
+      {
+        "colorRole": "mint",
+        "h": 440,
+        "header": "CURSOR / STABLE KEYS",
+        "headerStyle": "chip",
+        "id": "section-b",
+        "labelAlign": "left",
+        "y": 500
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "colorRole": "orange",
+      "h": 96,
+      "id": "insert",
+      "label": "Insert ID 106",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Newest first: 106, 105, 104",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 60,
+      "y": 260
+    },
+    {
+      "colorRole": "danger",
+      "h": 96,
+      "id": "offset",
+      "label": "OFFSET 2",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Page 1 was 105, 104",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 310,
+      "y": 260
+    },
+    {
+      "colorRole": "danger",
+      "h": 96,
+      "id": "duplicate",
+      "label": "104 repeats",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Page 2 is now 104, 103",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 560,
+      "y": 260
+    },
+    {
+      "colorRole": "mint",
+      "h": 96,
+      "id": "cursor",
+      "label": "Cursor: 104",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Last key on page 1",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 60,
+      "y": 615
+    },
+    {
+      "colorRole": "mint",
+      "h": 96,
+      "id": "next_page",
+      "label": "Next page",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Seek IDs below 104",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 310,
+      "y": 615
+    },
+    {
+      "colorRole": "success",
+      "h": 96,
+      "id": "rows",
+      "label": "103, 102",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Stable descending IDs",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 170,
+      "x": 560,
+      "y": 615
+    }
+  ],
+  "theme": "paper",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 6,
+        "cyclesPerLoop": 6,
+        "edgeIds": [
+          "cursor-next",
+          "next-rows"
+        ],
+        "effectiveSpeedPxPerSec": 137.14285714285714,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          583.3333333333334
+        ],
+        "segDurMs": [
+          583.3333333333334,
+          583.3333333333334
+        ],
+        "segStartMs": [
+          0,
+          583.3333333333334
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1166.6666666666667
+      }
+    ],
+    "durationMs": 7000,
+    "fps": 25,
+    "grids": {
+      "40": 175,
+      "50": 140
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "orange",
+        "word": "Cursors"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Offset duplicates.",
+      "Cursors keep their place."
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 40,
+    "subtitle": {
+      "font": "condensed",
+      "size": 18,
+      "text": "A NEW ROW SHOULD NOT REPLAY AN OLD ONE"
+    },
+    "text": "Offset duplicates. Cursors keep their place.",
+    "x": 400,
+    "y": 58
+  },
+  "warnings": []
+}

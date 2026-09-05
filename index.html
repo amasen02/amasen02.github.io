@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="diagif turns grounded technical research into verified, looping diagrams and draft posts.">
+  <meta name="theme-color" content="#071d1f">
+  <title>diagif — grounded technical diagrams that move</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23071d1f'/%3E%3Cpath d='M8 9h8a7 7 0 1 1 0 14H8z' fill='none' stroke='%234de0cf' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23ffbd66'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/renderer.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#playground">Skip to live playground</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="diagif home">
+      <span class="wordmark-mark" aria-hidden="true"><span></span></span>
+      <span>diagif</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#playground">Playground</a>
+      <a href="#process">Process</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+    <a class="button button-quiet header-github" href="https://github.com/amasen02/diagif">View on GitHub <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Open source · local first</p>
+          <h1 id="hero-title">One technical topic in.<br><span>A LinkedIn-ready animated diagram</span> out.</h1>
+          <p class="hero-lede">diagif researches the subject, builds a deterministic scene, renders a seamless GIF, and drafts the post around it. The evidence stays beside the output.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#playground">Try the live renderer <span aria-hidden="true">↓</span></a>
+            <a class="button button-secondary" href="https://github.com/amasen02/diagif">github.com/amasen02/diagif <span aria-hidden="true">↗</span></a>
+          </div>
+          <dl class="hero-facts" aria-label="Project qualities">
+            <div><dt>Public sources</dt><dd>research stays with the run</dd></div>
+            <div><dt>Mapped text</dt><dd>grounded or explicitly authored</dd></div>
+            <div><dt>Deterministic</dt><dd>time produces the frame</dd></div>
+          </dl>
+        </div>
+
+        <aside class="terminal-card" aria-label="Quickstart">
+          <div class="terminal-bar">
+            <span class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span>quickstart.sh</span>
+            <button class="copy-button" type="button" data-copy-target="quickstart-code">Copy</button>
+          </div>
+          <pre id="quickstart-code"><code><span class="code-muted"># after the source setup + npm link</span>
+<span class="code-prompt">$</span> npm i -g @openai/codex
+<span class="code-prompt">$</span> codex login
+<span class="code-prompt">$</span> diagif auth --json
+
+<span class="code-muted"># research, render, verify, draft</span>
+<span class="code-prompt">$</span> diagif make <span class="code-string">"explain RAG"</span></code></pre>
+          <details>
+            <summary>Source install</summary>
+            <pre><code><span class="code-prompt">$</span> git clone https://github.com/amasen02/diagif
+<span class="code-prompt">$</span> cd diagif
+<span class="code-prompt">$</span> npm ci
+<span class="code-prompt">$</span> python -m pip install -r requirements.txt
+<span class="code-prompt">$</span> npx playwright install chromium
+<span class="code-prompt">$</span> npm link</code></pre>
+          </details>
+          <p>Requires Node 24+ and Python 3.12. <a href="https://github.com/amasen02/diagif#get-started-from-source">Read platform notes</a>.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="playground section-shell" id="playground" aria-labelledby="playground-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The actual browser renderer</p>
+          <h2 id="playground-title">Scrub the scene, then inspect what drew it.</h2>
+        </div>
+        <p>No video layer and no pre-rendered frames. The scene JSON is mounted through the same renderer contract used for capture.</p>
+      </div>
+
+      <div class="demo-grid">
+        <div class="player-panel">
+          <div class="panel-toolbar">
+            <label for="scene-picker">Scene</label>
+            <select id="scene-picker" aria-describedby="scene-domain" disabled>
+              <option>Loading scenes…</option>
+            </select>
+            <span class="domain-chip" id="scene-domain">Loading</span>
+          </div>
+          <div class="canvas-shell" aria-busy="true">
+            <div id="root"></div>
+            <div class="render-state" id="render-state" role="status">Loading renderer…</div>
+          </div>
+          <div class="player-controls">
+            <button id="play-toggle" class="play-toggle" type="button" disabled aria-label="Play animation">
+              <span class="play-icon" aria-hidden="true"></span><span class="play-label">Play</span>
+            </button>
+            <label class="sr-only" for="scrub">Animation time</label>
+            <input id="scrub" type="range" min="0" max="1" value="0" step="1" disabled>
+            <output id="time-output" for="scrub">0:00 / 0:00</output>
+          </div>
+        </div>
+
+        <div class="json-panel">
+          <div class="panel-toolbar code-toolbar">
+            <span>normalized.scene.json</span>
+            <span class="valid-chip"><span aria-hidden="true">✓</span> mounted</span>
+          </div>
+          <pre id="scene-json" tabindex="0" aria-label="Normalized scene JSON"><code>Loading manifest…</code></pre>
+        </div>
+      </div>
+
+      <svg id="text-measure" width="0" height="0" aria-hidden="true" focusable="false"><text x="0" y="0"></text></svg>
+    </section>
+
+    <section class="process section-shell" id="process" aria-labelledby="process-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">A pipeline with receipts</p>
+          <h2 id="process-title">From source material to a checked artifact.</h2>
+        </div>
+        <p>Each stage leaves durable evidence. Failed candidates stay visible for diagnosis; passing means the final files survived the gates.</p>
+      </div>
+      <ol class="pipeline">
+        <li><span>01</span><div><h3>Research</h3><p>Collect public sources and map diagram text to grounded facts.</p></div></li>
+        <li><span>02</span><div><h3>Brief</h3><p>Choose one useful visual argument and define its audience.</p></div></li>
+        <li><span>03</span><div><h3>Scene</h3><p>Build normalized, schema-checked JSON with a finite timeline.</p></div></li>
+        <li><span>04</span><div><h3>Render</h3><p>Capture deterministic frames in bundled fonts and Chromium.</p></div></li>
+        <li><span>05</span><div><h3>Critic</h3><p>Check the hook, readability, evidence, motion, and composition.</p></div></li>
+        <li><span>06</span><div><h3>Deliver</h3><p>Gate loop seams, flicker, size, duration, and claims coverage.</p></div></li>
+      </ol>
+      <div class="gate-strip" aria-label="Delivery gates">
+        <span><i aria-hidden="true"></i> Seamless loop</span>
+        <span><i aria-hidden="true"></i> Zero static-region flicker</span>
+        <span><i aria-hidden="true"></i> Size cap</span>
+        <span><i aria-hidden="true"></i> Claims coverage</span>
+      </div>
+    </section>
+
+    <section class="gallery section-shell" id="gallery" aria-labelledby="gallery-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Twelve measured examples</p>
+          <h2 id="gallery-title">Technical stories, built to loop.</h2>
+        </div>
+        <p>GIFs load lazily. If your system requests reduced motion, each animation waits for you to opt in.</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"><p class="loading-copy">Loading gallery…</p></div>
+    </section>
+
+    <section class="case-study section-shell" aria-labelledby="caption-title">
+      <article class="caption-card">
+        <p class="eyebrow">Draft post · REST APIs</p>
+        <h2 id="caption-title">An idempotency key is more than a header—it is a replay contract.</h2>
+        <ol>
+          <li>Atomically claim or read the key so concurrent duplicates cannot execute the handler twice.</li>
+          <li>Bind the key to the user, method, path, and request-body hash to prevent mismatched requests from sharing state.</li>
+          <li>On a matching retry, replay the original response instead of running the handler again.</li>
+          <li>Release keys after transient 5xx or infrastructure failures; retain deterministic 4xx outcomes for replay.</li>
+          <li>Recover crashed in-progress requests by taking over expired locks and rerunning the handler.</li>
+        </ol>
+        <p>Design your retry path around the failure cases, not just the happy path.</p>
+        <p class="hashtags">#RESTAPI #Idempotency #BackendEngineering #DistributedSystems</p>
+      </article>
+
+      <aside class="evidence-card" aria-labelledby="evidence-title">
+        <p class="eyebrow">Source notes for the caption</p>
+        <h2 id="evidence-title">Why the key and body must agree</h2>
+        <p>The HTTPAPI working group draft defines a request fingerprint as a payload-derived way to establish request uniqueness. It describes replaying a completed operation and treating a concurrent duplicate as a conflict.</p>
+        <p>Stripe documents the concrete service behavior: later requests with the same key return the first result, while changed parameters produce an error.</p>
+        <ul class="source-list">
+          <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-idempotency-key-header-07">IETF HTTPAPI draft 07 <span aria-hidden="true">↗</span></a><span>Sections 2.2–2.7 · Internet-Draft</span></li>
+          <li><a href="https://docs.stripe.com/api/idempotent_requests">Stripe API reference <span aria-hidden="true">↗</span></a><span>Idempotent request behavior</span></li>
+        </ul>
+        <p class="source-caveat">The IETF document is an expired Internet-Draft, not a published RFC. Status codes and retention policy remain part of each API’s documented contract.</p>
+      </aside>
+    </section>
+
+    <section class="cta section-shell" aria-labelledby="cta-title">
+      <div>
+        <p class="eyebrow">The output stays yours</p>
+        <h2 id="cta-title">Make the explanation move.</h2>
+        <p>Research records, scene JSON, GIF, contact sheet, quality report, and draft post all stay on your machine.</p>
+      </div>
+      <a class="button button-primary" href="https://github.com/amasen02/diagif">Explore diagif on GitHub <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="wordmark" href="#top"><span class="wordmark-mark" aria-hidden="true"><span></span></span><span>diagif</span></a>
+    <p>Grounded technical diagrams that move.</p>
+    <div><a href="https://github.com/amasen02/diagif">GitHub</a><a href="https://github.com/amasen02/diagif/blob/main/LICENSE">MIT License</a></div>
+  </footer>
+</body>
+</html>

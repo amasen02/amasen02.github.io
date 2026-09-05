@@ -1,0 +1,415 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": true,
+      "curve": "auto",
+      "font": "code",
+      "fontSize": 16,
+      "h": 106,
+      "id": "registration",
+      "kind": "code",
+      "language": "text",
+      "lines": [
+        {
+          "band": "orange",
+          "text": "services.AddTransient<Worker>();"
+        },
+        {
+          "band": "cyan",
+          "text": "services.AddScoped<Session>();"
+        },
+        {
+          "band": "mint",
+          "text": "services.AddSingleton<Clock>();"
+        }
+      ],
+      "maxWidth": 190,
+      "targetAnchor": "top",
+      "w": 400,
+      "x": 65,
+      "y": 800
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "lifetime-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 240,
+      "targetAnchor": "top",
+      "text": "Count resolutions, scopes and providers separately.",
+      "x": 500,
+      "y": 815
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "request-a",
+      "fromAnchor": "left",
+      "id": "request-a-di",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "scope A"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "container",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 65,
+          "y": 295
+        },
+        {
+          "x": 65,
+          "y": 665
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "request-b",
+      "fromAnchor": "bottom",
+      "id": "request-b-di",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "scope B"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "container",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "container",
+      "fromAnchor": "right",
+      "id": "new",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "per resolve"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "transient",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 355,
+          "y": 665
+        },
+        {
+          "x": 355,
+          "y": 300
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "container",
+      "fromAnchor": "right",
+      "id": "scope",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "per scope"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "scoped",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 405,
+          "y": 665
+        },
+        {
+          "x": 405,
+          "y": 495
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "container",
+      "fromAnchor": "right",
+      "id": "shared",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "shared"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "singleton",
+      "toAnchor": "left"
+    }
+  ],
+  "grain": false,
+  "id": "dotnet-di-lifetimes",
+  "layout": {
+    "columns": [
+      {
+        "accentFrom": "#42CBEA",
+        "accentTo": "#75D6B4",
+        "h": 560,
+        "header": "REQUEST SCOPES",
+        "id": "left-frame",
+        "w": 285,
+        "x": 40,
+        "y": 210
+      },
+      {
+        "accentFrom": "#F6AC65",
+        "accentTo": "#DC80B1",
+        "h": 560,
+        "header": "ONE REGISTRATION PER LIFETIME",
+        "id": "right-frame",
+        "w": 340,
+        "x": 420,
+        "y": 210
+      }
+    ],
+    "kind": "split-columns"
+  },
+  "nodes": [
+    {
+      "colorRole": "cyan",
+      "h": 100,
+      "icon": {
+        "name": "globe",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "request-a",
+      "label": "Request A",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Resolve twice in scope A",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 210,
+      "x": 95,
+      "y": 245
+    },
+    {
+      "colorRole": "cyan",
+      "h": 100,
+      "icon": {
+        "name": "globe",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "request-b",
+      "label": "Request B",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Resolve twice in scope B",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 210,
+      "x": 95,
+      "y": 415
+    },
+    {
+      "colorRole": "neutral",
+      "h": 100,
+      "icon": {
+        "name": "settings",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "container",
+      "label": "DI container",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "One service provider",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 210,
+      "x": 95,
+      "y": 615
+    },
+    {
+      "colorRole": "orange",
+      "h": 110,
+      "id": "transient",
+      "label": "Transient: 4 instances",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "A1, A2 / B1, B2",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 260,
+      "x": 460,
+      "y": 245
+    },
+    {
+      "colorRole": "cyan",
+      "h": 110,
+      "id": "scoped",
+      "label": "Scoped: 2 instances",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "A, A / B, B",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 260,
+      "x": 460,
+      "y": 440
+    },
+    {
+      "colorRole": "mint",
+      "h": 110,
+      "id": "singleton",
+      "label": "Singleton: 1 instance",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "S, S / S, S",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 260,
+      "x": 460,
+      "y": 635
+    }
+  ],
+  "theme": "soft-light",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 1,
+        "cyclesPerLoop": 1,
+        "edgeIds": [
+          "request-a-di",
+          "new"
+        ],
+        "effectiveSpeedPxPerSec": 158.33333333333334,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          3000
+        ],
+        "segDurMs": [
+          2715.789473684211,
+          3284.2105263157896
+        ],
+        "segStartMs": [
+          0,
+          2715.789473684211
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 6000
+      },
+      {
+        "cycles": 2,
+        "cyclesPerLoop": 2,
+        "effectivePeriodMs": 3000,
+        "kind": "pulse",
+        "nodeIds": [
+          "scoped"
+        ],
+        "scale": 1.04
+      }
+    ],
+    "durationMs": 6000,
+    "fps": 25,
+    "grids": {
+      "40": 150,
+      "50": 120
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "color": "#147D92",
+        "word": "Scoped"
+      },
+      {
+        "color": "#AC6411",
+        "word": "instances"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Scoped, transient, singleton:",
+      "count the instances"
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 40,
+    "subtitle": {
+      "font": "condensed",
+      "size": 19,
+      "text": "ASP.NET CORE: TWO REQUEST SCOPES, TWO RESOLUTIONS EACH"
+    },
+    "text": "Scoped, transient, singleton: count the instances",
+    "x": 400,
+    "y": 60
+  },
+  "warnings": []
+}

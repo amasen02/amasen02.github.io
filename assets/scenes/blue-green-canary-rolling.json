@@ -1,0 +1,525 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "blast-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 350,
+      "targetAnchor": "top",
+      "text": "Blue-green switches all traffic. Canary limits initial exposure.",
+      "x": 50,
+      "y": 815
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "compat-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 320,
+      "targetAnchor": "top",
+      "text": "Rolling mixes versions: keep APIs and schema compatible.",
+      "x": 430,
+      "y": 815
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "traffic",
+      "fromAnchor": "bottom",
+      "id": "traffic-v1",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "before"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "v1",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "traffic",
+      "fromAnchor": "left",
+      "id": "traffic-v2",
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "v2",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 48,
+          "y": 295
+        },
+        {
+          "x": 48,
+          "y": 690
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "v1",
+      "fromAnchor": "bottom",
+      "id": "switch",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "switch all"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "v2",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "canary-traffic",
+      "fromAnchor": "bottom",
+      "id": "traffic-canary",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "5% sample"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "canary",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "danger",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "canary",
+      "fromAnchor": "bottom",
+      "id": "canary-rollback",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "if unhealthy"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "rollback",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "rolling-old",
+      "fromAnchor": "bottom",
+      "id": "rolling-first",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "replace"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "rolling-mix",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "rolling-mix",
+      "fromAnchor": "bottom",
+      "id": "rolling-next",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "repeat"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "rolling-new",
+      "toAnchor": "top"
+    }
+  ],
+  "grain": false,
+  "id": "blue-green-canary-rolling",
+  "layout": {
+    "columns": [
+      {
+        "accentFrom": "#238ab8",
+        "accentTo": "#30b991",
+        "h": 565,
+        "header": "BLUE-GREEN",
+        "id": "blue-col",
+        "w": 220,
+        "x": 40,
+        "y": 215
+      },
+      {
+        "accentFrom": "#d79432",
+        "accentTo": "#e2b95e",
+        "h": 565,
+        "header": "CANARY",
+        "id": "canary-col",
+        "w": 220,
+        "x": 290,
+        "y": 215
+      },
+      {
+        "accentFrom": "#705fb4",
+        "accentTo": "#238ab8",
+        "h": 565,
+        "header": "ROLLING",
+        "id": "rolling-col",
+        "w": 220,
+        "x": 540,
+        "y": 215
+      }
+    ],
+    "kind": "split-columns"
+  },
+  "nodes": [
+    {
+      "colorRole": "cyan",
+      "h": 90,
+      "icon": {
+        "name": "git-branch",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "traffic",
+      "label": "Traffic switch",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "One active environment",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 60,
+      "y": 250
+    },
+    {
+      "colorRole": "cyan",
+      "h": 90,
+      "id": "v1",
+      "label": "v1 / blue",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "100% before cutover",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 60,
+      "y": 440
+    },
+    {
+      "colorRole": "mint",
+      "h": 100,
+      "icon": {
+        "name": "docker",
+        "size": 28,
+        "source": "brand"
+      },
+      "id": "v2",
+      "label": "v2 / green",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "100% after cutover",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 60,
+      "y": 640
+    },
+    {
+      "colorRole": "orange",
+      "h": 90,
+      "icon": {
+        "name": "git-branch",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "canary-traffic",
+      "label": "Traffic split",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "95% stable / 5% new",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 310,
+      "y": 250
+    },
+    {
+      "colorRole": "orange",
+      "h": 90,
+      "id": "canary",
+      "label": "v2 / canary",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Watch errors + latency",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 310,
+      "y": 440
+    },
+    {
+      "colorRole": "danger",
+      "h": 100,
+      "icon": {
+        "name": "refresh-cw",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "rollback",
+      "label": "Rollback",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Route 100% back to v1",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 310,
+      "y": 640
+    },
+    {
+      "colorRole": "cyan",
+      "h": 90,
+      "icon": {
+        "name": "kubernetes",
+        "size": 28,
+        "source": "brand"
+      },
+      "id": "rolling-old",
+      "label": "v1 v1 v1",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Start with old replicas",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 560,
+      "y": 250
+    },
+    {
+      "colorRole": "magenta",
+      "h": 90,
+      "id": "rolling-mix",
+      "label": "v2 v1 v1",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Replace a small batch",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 560,
+      "y": 440
+    },
+    {
+      "colorRole": "mint",
+      "h": 100,
+      "id": "rolling-new",
+      "label": "v2 v2 v2",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Finish replica by replica",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 180,
+      "x": 560,
+      "y": 640
+    }
+  ],
+  "theme": "soft-light",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "traffic-v1",
+          "switch"
+        ],
+        "effectiveSpeedPxPerSec": 140,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          750
+        ],
+        "segDurMs": [
+          714.2857142857142,
+          785.7142857142858
+        ],
+        "segStartMs": [
+          0,
+          714.2857142857142
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1500
+      },
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "traffic-canary",
+          "canary-rollback"
+        ],
+        "effectiveSpeedPxPerSec": 140,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          750
+        ],
+        "segDurMs": [
+          714.2857142857142,
+          785.7142857142858
+        ],
+        "segStartMs": [
+          0,
+          714.2857142857142
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1500
+      },
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "rolling-first",
+          "rolling-next"
+        ],
+        "effectiveSpeedPxPerSec": 140,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          750
+        ],
+        "segDurMs": [
+          714.2857142857142,
+          785.7142857142858
+        ],
+        "segStartMs": [
+          0,
+          714.2857142857142
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1500
+      }
+    ],
+    "durationMs": 6000,
+    "fps": 25,
+    "grids": {
+      "40": 150,
+      "50": 120
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "orange",
+        "word": "blast radius"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Blue-green, canary, rolling:",
+      "same code, different blast radius"
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 38,
+    "subtitle": {
+      "font": "condensed",
+      "size": 18,
+      "text": "THREE RELEASE STRATEGIES. THREE WAYS TO LIMIT EXPOSURE."
+    },
+    "text": "Blue-green, canary, rolling: same code, different blast radius",
+    "x": 400,
+    "y": 58
+  },
+  "warnings": []
+}

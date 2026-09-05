@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "renderer": {
+    "file": "assets/renderer.js",
+    "modules": [
+      "themes",
+      "icon-data",
+      "icons",
+      "svg-builder",
+      "path-geometry",
+      "code-tokens",
+      "edges",
+      "layout",
+      "render-static",
+      "timeline",
+      "animations",
+      "page-runtime"
+    ],
+    "bytes": 115963,
+    "sha256": "24f404b5f6b5e06148e517ce08f55b842c7bb1a025f1f74d8f242ad4a22cb1d4"
+  },
+  "fonts": {
+    "css": "assets/fonts.css",
+    "files": [
+      {
+        "family": "Lilita One",
+        "weightRole": "display",
+        "weight": "400",
+        "file": "assets/fonts/lilitaone/LilitaOne-Regular.woff2",
+        "bytes": 11924,
+        "sha256": "fd882d2519e6eb27b4fb4fe9906149cb29d31a995a6b139c9e1e2a29c9525505",
+        "sourceSha256": "f5b641c45c69d772ee4eda687bc9fda411d5cad6b0b45371491da4580cbc8d59",
+        "license": "assets/fonts/lilitaone/OFL.txt"
+      },
+      {
+        "family": "Bebas Neue",
+        "weightRole": "condensed",
+        "weight": "400",
+        "file": "assets/fonts/bebasneue/BebasNeue-Regular.woff2",
+        "bytes": 21512,
+        "sha256": "a46d885c8df55214ce6a02e1714389620a5712801a30e6b80bddfc7091d8e619",
+        "sourceSha256": "08e4623805102d819f58601e46e345648846075e363b2ceb23313c2d1c83ec73",
+        "license": "assets/fonts/bebasneue/OFL.txt"
+      },
+      {
+        "family": "Inter",
+        "weightRole": "body",
+        "weight": "100 900",
+        "file": "assets/fonts/inter/Inter[opsz,wght].woff2",
+        "bytes": 350460,
+        "sha256": "13b4cddc57045d40b411008e61588c8f81aa0bd72fe884624831a0ff9c4d159a",
+        "sourceSha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+        "license": "assets/fonts/inter/OFL.txt"
+      },
+      {
+        "family": "Patrick Hand",
+        "weightRole": "annotation",
+        "weight": "400",
+        "file": "assets/fonts/patrickhand/PatrickHand-Regular.woff2",
+        "bytes": 62744,
+        "sha256": "3453e54e140302947a240227741393ce80e3a4ae9e317e9172ad258762f4a833",
+        "sourceSha256": "0f173b3e6cb6d1af25babf7f0057c5ac4ee11f9992b0469bb817e967ef4ad0fc",
+        "license": "assets/fonts/patrickhand/OFL.txt"
+      },
+      {
+        "family": "JetBrains Mono",
+        "weightRole": "code",
+        "weight": "100 800",
+        "file": "assets/fonts/jetbrainsmono/JetBrainsMono[wght].woff2",
+        "bytes": 71736,
+        "sha256": "7b7f3419196f675a973d30cb70078749120caddea86c8547ebf54a8db2ca13af",
+        "sourceSha256": "48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda",
+        "license": "assets/fonts/jetbrainsmono/OFL.txt"
+      },
+      {
+        "family": "Space Mono",
+        "weightRole": "labelMono",
+        "weight": "700",
+        "file": "assets/fonts/spacemono/SpaceMono-Bold.woff2",
+        "bytes": 35324,
+        "sha256": "aa90806275743a460cb47b707d975c27358473cd6068bba1d4c62d13d747b120",
+        "sourceSha256": "405e73d41afb7e5906efce206a326af5c956f38e255f35421c260e861e599c59",
+        "license": "assets/fonts/spacemono/OFL.txt"
+      }
+    ],
+    "declaredBytes": 553700,
+    "cssBytes": 971
+  },
+  "licenses": [
+    "assets/licenses/lucide-LICENSE.txt",
+    "assets/licenses/simple-icons-LICENSE.txt"
+  ],
+  "scenes": [
+    {
+      "id": "mcp-vs-skills",
+      "title": "MCP vs Skills",
+      "domain": "AI",
+      "file": "assets/scenes/mcp-vs-skills.json"
+    },
+    {
+      "id": "graphrag-vs-vector-rag",
+      "title": "Vector RAG vs GraphRAG",
+      "domain": "AI",
+      "file": "assets/scenes/graphrag-vs-vector-rag.json"
+    },
+    {
+      "id": "dotnet-di-lifetimes",
+      "title": ".NET dependency injection lifetimes",
+      "domain": ".NET",
+      "file": "assets/scenes/dotnet-di-lifetimes.json"
+    },
+    {
+      "id": "angular-defer-hydration",
+      "title": "Angular defer and hydration",
+      "domain": "Angular",
+      "file": "assets/scenes/angular-defer-hydration.json"
+    },
+    {
+      "id": "serverless-containers-vms",
+      "title": "Serverless, containers, or VMs",
+      "domain": "Cloud",
+      "file": "assets/scenes/serverless-containers-vms.json"
+    },
+    {
+      "id": "blue-green-canary-rolling",
+      "title": "Blue-green, canary, and rolling deployments",
+      "domain": "DevOps",
+      "file": "assets/scenes/blue-green-canary-rolling.json"
+    },
+    {
+      "id": "oauth-pkce",
+      "title": "OAuth with PKCE",
+      "domain": "Security",
+      "file": "assets/scenes/oauth-pkce.json"
+    },
+    {
+      "id": "sql-leftmost-prefix",
+      "title": "SQL leftmost-prefix indexes",
+      "domain": "SQL",
+      "file": "assets/scenes/sql-leftmost-prefix.json"
+    },
+    {
+      "id": "rest-cursor-pagination",
+      "title": "REST cursor pagination",
+      "domain": "REST",
+      "file": "assets/scenes/rest-cursor-pagination.json"
+    },
+    {
+      "id": "modular-monolith",
+      "title": "Modular monolith boundaries",
+      "domain": "Architecture",
+      "file": "assets/scenes/modular-monolith.json"
+    },
+    {
+      "id": "solid-before-after",
+      "title": "Single responsibility before and after",
+      "domain": "SOLID",
+      "file": "assets/scenes/solid-before-after.json"
+    },
+    {
+      "id": "agent-mock-mindmap",
+      "title": "Agentic AI control loop",
+      "domain": "Mind map",
+      "file": "assets/scenes/agent-mock-mindmap.json"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "agentic-ai",
+      "title": "Agentic AI: a controlled loop",
+      "domain": "AI",
+      "file": "assets/gallery/agentic-ai.gif",
+      "qualityFile": "assets/gallery/agentic-ai.gif.quality.json",
+      "width": 800,
+      "height": 1100,
+      "bytes": 454429,
+      "sha256": "b133d0700eb6b253e80856eb0c302a69d11c8e9f820e26cccf3c575444ed7dc1"
+    },
+    {
+      "id": "blue-green-canary-rolling",
+      "title": "Deployment strategies",
+      "domain": "DevOps",
+      "file": "assets/gallery/blue-green-canary-rolling.gif",
+      "qualityFile": "assets/gallery/blue-green-canary-rolling.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 254201,
+      "sha256": "f65a458362bf5de3689671df834cbfba2bffcde9b4ef8916f9eff8993dd4310c"
+    },
+    {
+      "id": "mcp-vs-skills",
+      "title": "MCP vs Skills",
+      "domain": "Protocols",
+      "file": "assets/gallery/mcp-vs-skills.gif",
+      "qualityFile": "assets/gallery/mcp-vs-skills.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 240481,
+      "sha256": "ef96d658f3befb2699437e24f3ca04a4b0c12f6bee08721d7e3f45b9db1a9586"
+    },
+    {
+      "id": "oauth-pkce",
+      "title": "OAuth with PKCE",
+      "domain": "Security",
+      "file": "assets/gallery/oauth-pkce.gif",
+      "qualityFile": "assets/gallery/oauth-pkce.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 505123,
+      "sha256": "a969b44430d3ad455f04512a73e8e684d62d4c95f536e7517e65c8fba42a2d7e"
+    },
+    {
+      "id": "rest-cursor-pagination",
+      "title": "Cursor pagination",
+      "domain": "REST APIs",
+      "file": "assets/gallery/rest-cursor-pagination.gif",
+      "qualityFile": "assets/gallery/rest-cursor-pagination.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 110135,
+      "sha256": "2db8caca656031c005080c632004d8a416176a027691eb41b5a9034b7c3a264e"
+    },
+    {
+      "id": "sql-leftmost-prefix",
+      "title": "Composite index order",
+      "domain": "SQL",
+      "file": "assets/gallery/sql-leftmost-prefix.gif",
+      "qualityFile": "assets/gallery/sql-leftmost-prefix.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 193347,
+      "sha256": "57253480721324d69d7aa42609b325f3b96f0a40d488c58e9935867c42d771a4"
+    },
+    {
+      "id": "angular-defer-hydration",
+      "title": "Angular defer and hydration",
+      "domain": "Angular",
+      "file": "assets/gallery/angular-defer-hydration.gif",
+      "qualityFile": "assets/gallery/angular-defer-hydration.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 112941,
+      "sha256": "ec285f1c4f8f235cea270057c128589c8a7a4e0a545aef8ca16bf7e36fa4c811"
+    },
+    {
+      "id": "dotnet-di-lifetimes",
+      "title": ".NET dependency injection lifetimes",
+      "domain": ".NET",
+      "file": "assets/gallery/dotnet-di-lifetimes.gif",
+      "qualityFile": "assets/gallery/dotnet-di-lifetimes.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 378084,
+      "sha256": "7f384d233d336bf2dbd2f64e81efd9460f41727bd94928a81b3d85764205cc0d"
+    },
+    {
+      "id": "serverless-containers-vms",
+      "title": "Serverless, containers, or VMs",
+      "domain": "Cloud",
+      "file": "assets/gallery/serverless-containers-vms.gif",
+      "qualityFile": "assets/gallery/serverless-containers-vms.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 370305,
+      "sha256": "82e4a09e121e42a369b104afe55f265d6ef28410bfe475f4e2ce650798517a95"
+    },
+    {
+      "id": "modular-monolith",
+      "title": "Modular monolith boundaries",
+      "domain": "Architecture",
+      "file": "assets/gallery/modular-monolith.gif",
+      "qualityFile": "assets/gallery/modular-monolith.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 372682,
+      "sha256": "5c0cc6b6327c9b205891af4bfe7eb9f8e52cff161a37c31e4061a1ddb31530a7"
+    },
+    {
+      "id": "solid-before-after",
+      "title": "One reason to change",
+      "domain": "SOLID",
+      "file": "assets/gallery/solid-before-after.gif",
+      "qualityFile": "assets/gallery/solid-before-after.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 131409,
+      "sha256": "bcbf36fb7f2c040142f806e2b232bcd37522bcf6158bf3f8680c77fb8f6252ea"
+    },
+    {
+      "id": "graphrag-vs-vector-rag",
+      "title": "Vector RAG vs GraphRAG",
+      "domain": "Knowledge graphs",
+      "file": "assets/gallery/graphrag-vs-vector-rag.gif",
+      "qualityFile": "assets/gallery/graphrag-vs-vector-rag.gif.quality.json",
+      "width": 800,
+      "height": 1000,
+      "bytes": 414627,
+      "sha256": "170001d88da657adf51418b4285b24207d09cf385c054b1cd9416ddcc0e0b801"
+    }
+  ]
+}

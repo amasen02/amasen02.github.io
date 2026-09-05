@@ -1,0 +1,17 @@
+{
+  "failures": [],
+  "expectedFrames": 150,
+  "loopSeamOk": true,
+  "width": 800,
+  "height": 1100,
+  "loop": 0,
+  "bytes": 454429,
+  "frames": 150,
+  "mergedFrames": 0,
+  "delays": {
+    "40": 150
+  },
+  "totalMs": 6000,
+  "staticRegionMaxDiff": 0,
+  "flickerPixelCount": 0
+}

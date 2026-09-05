@@ -1,0 +1,444 @@
+{
+  "annotations": [],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1100,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "dashed": true,
+      "from": "agentic-ai",
+      "fromAnchor": "right",
+      "id": "mm-agentic-ai-plan",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "plan",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "dashed": true,
+      "from": "plan",
+      "fromAnchor": "right",
+      "id": "mm-plan-plan-leaf",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "plan-leaf",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "dashed": true,
+      "from": "agentic-ai",
+      "fromAnchor": "right",
+      "id": "mm-agentic-ai-act",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "act",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "dashed": true,
+      "from": "act",
+      "fromAnchor": "right",
+      "id": "mm-act-act-leaf",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "act-leaf",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "dashed": true,
+      "from": "agentic-ai",
+      "fromAnchor": "right",
+      "id": "mm-agentic-ai-observe",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "observe",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "dashed": true,
+      "from": "observe",
+      "fromAnchor": "right",
+      "id": "mm-observe-observe-leaf",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "observe-leaf",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "magenta",
+      "dashed": true,
+      "from": "agentic-ai",
+      "fromAnchor": "right",
+      "id": "mm-agentic-ai-evaluate",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "evaluate",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "magenta",
+      "dashed": true,
+      "from": "evaluate",
+      "fromAnchor": "right",
+      "id": "mm-evaluate-evaluate-leaf",
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "evaluate-leaf",
+      "toAnchor": "left"
+    }
+  ],
+  "grain": false,
+  "id": "agent-mock-mindmap",
+  "layout": {
+    "kind": "mindmap",
+    "mindmap": {
+      "branches": [
+        {
+          "colorRole": "cyan",
+          "id": "plan",
+          "label": "Plan",
+          "leaves": [
+            {
+              "id": "plan-leaf",
+              "label": "Set the goal"
+            }
+          ]
+        },
+        {
+          "colorRole": "mint",
+          "id": "act",
+          "label": "Act",
+          "leaves": [
+            {
+              "id": "act-leaf",
+              "label": "Use tools"
+            }
+          ]
+        },
+        {
+          "colorRole": "orange",
+          "id": "observe",
+          "label": "Observe",
+          "leaves": [
+            {
+              "id": "observe-leaf",
+              "label": "Read results"
+            }
+          ]
+        },
+        {
+          "colorRole": "magenta",
+          "id": "evaluate",
+          "label": "Evaluate",
+          "leaves": [
+            {
+              "id": "evaluate-leaf",
+              "label": "Check progress"
+            }
+          ]
+        }
+      ],
+      "placement": {
+        "cluster": 420,
+        "items": [
+          {
+            "cx": 132,
+            "cy": 608,
+            "id": "agentic-ai",
+            "kind": "root",
+            "row": 0,
+            "side": "left"
+          },
+          {
+            "cx": 356,
+            "cy": 442,
+            "id": "plan",
+            "kind": "branch",
+            "row": 0,
+            "side": "right"
+          },
+          {
+            "cx": 580,
+            "cy": 442,
+            "id": "plan-leaf",
+            "kind": "leaf",
+            "row": 0,
+            "side": "right"
+          },
+          {
+            "cx": 356,
+            "cy": 554,
+            "id": "act",
+            "kind": "branch",
+            "row": 1,
+            "side": "right"
+          },
+          {
+            "cx": 580,
+            "cy": 554,
+            "id": "act-leaf",
+            "kind": "leaf",
+            "row": 1,
+            "side": "right"
+          },
+          {
+            "cx": 356,
+            "cy": 666,
+            "id": "observe",
+            "kind": "branch",
+            "row": 2,
+            "side": "right"
+          },
+          {
+            "cx": 580,
+            "cy": 666,
+            "id": "observe-leaf",
+            "kind": "leaf",
+            "row": 2,
+            "side": "right"
+          },
+          {
+            "cx": 356,
+            "cy": 778,
+            "id": "evaluate",
+            "kind": "branch",
+            "row": 3,
+            "side": "right"
+          },
+          {
+            "cx": 580,
+            "cy": 778,
+            "id": "evaluate-leaf",
+            "kind": "leaf",
+            "row": 3,
+            "side": "right"
+          }
+        ],
+        "pitch": 112,
+        "rowH": 84,
+        "rows": {
+          "right": 4
+        },
+        "top": 400,
+        "version": 2,
+        "zone": {
+          "bottom": 1100,
+          "h": 990,
+          "w": 736,
+          "x": 32,
+          "y": 110
+        }
+      },
+      "root": {
+        "icon": {
+          "name": "bot",
+          "size": 28,
+          "source": "line"
+        },
+        "id": "agentic-ai",
+        "label": "Agentic AI"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "colorRole": "primary",
+      "h": 96,
+      "icon": {
+        "name": "bot",
+        "size": 28,
+        "source": "line"
+      },
+      "id": "agentic-ai",
+      "label": "Agentic AI",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 200,
+      "x": 32,
+      "y": 560
+    },
+    {
+      "colorRole": "cyan",
+      "h": 84,
+      "id": "plan",
+      "label": "Plan",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 152,
+      "x": 280,
+      "y": 400
+    },
+    {
+      "colorRole": "cyan",
+      "h": 64,
+      "id": "plan-leaf",
+      "label": "Set the goal",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 200,
+      "x": 480,
+      "y": 410
+    },
+    {
+      "colorRole": "mint",
+      "h": 84,
+      "id": "act",
+      "label": "Act",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 152,
+      "x": 280,
+      "y": 512
+    },
+    {
+      "colorRole": "mint",
+      "h": 64,
+      "id": "act-leaf",
+      "label": "Use tools",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 200,
+      "x": 480,
+      "y": 522
+    },
+    {
+      "colorRole": "orange",
+      "h": 84,
+      "id": "observe",
+      "label": "Observe",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 152,
+      "x": 280,
+      "y": 624
+    },
+    {
+      "colorRole": "orange",
+      "h": 64,
+      "id": "observe-leaf",
+      "label": "Read results",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 200,
+      "x": 480,
+      "y": 634
+    },
+    {
+      "colorRole": "magenta",
+      "h": 84,
+      "id": "evaluate",
+      "label": "Evaluate",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 152,
+      "x": 280,
+      "y": 736
+    },
+    {
+      "colorRole": "magenta",
+      "h": 64,
+      "id": "evaluate-leaf",
+      "label": "Check progress",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "shape": "rounded-rect",
+      "w": 200,
+      "x": 480,
+      "y": 746
+    }
+  ],
+  "theme": "dark-teal",
+  "timeline": {
+    "animations": [
+      {
+        "cycles": 48,
+        "cyclesPerLoop": 48,
+        "dash": 8,
+        "edgeIds": [
+          "mm-agentic-ai-plan",
+          "mm-plan-plan-leaf",
+          "mm-agentic-ai-act",
+          "mm-act-act-leaf",
+          "mm-agentic-ai-observe",
+          "mm-observe-observe-leaf",
+          "mm-agentic-ai-evaluate",
+          "mm-evaluate-evaluate-leaf"
+        ],
+        "effectiveSpeedPxPerSec": 128,
+        "gap": 8,
+        "kind": "marching-dash",
+        "speedPxPerSec": 128
+      },
+      {
+        "dwellMs": 1500,
+        "kind": "sequential-highlight",
+        "order": [
+          "plan",
+          "act",
+          "observe",
+          "evaluate"
+        ],
+        "scale": 1.04,
+        "stepStartsMs": [
+          0,
+          1500,
+          3000,
+          4500
+        ]
+      }
+    ],
+    "durationMs": 6000,
+    "fps": 25,
+    "grids": {
+      "40": 150,
+      "50": 120
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "align": "center",
+    "font": "display",
+    "size": 36,
+    "text": "Agentic AI: a controlled loop",
+    "x": 400,
+    "y": 60
+  },
+  "warnings": []
+}

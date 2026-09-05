@@ -1,0 +1,435 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 23,
+      "id": "burst-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 335,
+      "targetAnchor": "top",
+      "text": "Scale-to-zero helps when idle time is real.",
+      "x": 70,
+      "y": 385
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 20,
+      "id": "cost-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 285,
+      "targetAnchor": "top",
+      "text": "No universal break-even. Include latency, egress and team time.",
+      "x": 450,
+      "y": 370
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 19,
+      "id": "steady-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 270,
+      "targetAnchor": "top",
+      "text": "Containers can run on VMs or on serverless platforms.",
+      "x": 455,
+      "y": 850
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "bursty",
+      "fromAnchor": "right",
+      "id": "burst-route",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "on demand"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "lambda",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "steady",
+      "fromAnchor": "right",
+      "id": "steady-container",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "service runtime"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "container",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "steady",
+      "fromAnchor": "bottom",
+      "id": "steady-vm",
+      "label": {
+        "pill": true,
+        "side": "right",
+        "t": 0.5,
+        "text": "OS control"
+      },
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "vm",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 157,
+          "y": 710
+        },
+        {
+          "x": 420,
+          "y": 710
+        },
+        {
+          "x": 420,
+          "y": 772
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "lambda",
+      "fromAnchor": "right",
+      "id": "lambda-cost",
+      "label": {
+        "pill": true,
+        "side": "left",
+        "t": 0.74,
+        "text": "metered usage"
+      },
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "cost-curve",
+      "toAnchor": "bottom",
+      "waypoints": [
+        {
+          "x": 750,
+          "y": 290
+        },
+        {
+          "x": 750,
+          "y": 922
+        },
+        {
+          "x": 212,
+          "y": 922
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "container",
+      "fromAnchor": "bottom",
+      "id": "container-cost",
+      "label": {
+        "pill": true,
+        "side": "left",
+        "t": 0.76,
+        "text": "capacity + ops"
+      },
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "cost-curve",
+      "toAnchor": "top",
+      "waypoints": [
+        {
+          "x": 590,
+          "y": 690
+        },
+        {
+          "x": 390,
+          "y": 690
+        },
+        {
+          "x": 390,
+          "y": 760
+        },
+        {
+          "x": 212,
+          "y": 760
+        }
+      ]
+    }
+  ],
+  "grain": true,
+  "id": "serverless-containers-vms",
+  "layout": {
+    "divider": {
+      "style": "dotted"
+    },
+    "kind": "split-comparison",
+    "sections": [
+      {
+        "colorRole": "cyan",
+        "h": 320,
+        "header": "Bursty: pay per use",
+        "headerStyle": "chip",
+        "id": "upper-section",
+        "labelAlign": "left",
+        "y": 155
+      },
+      {
+        "colorRole": "mint",
+        "h": 455,
+        "header": "Steady: keep capacity busy",
+        "headerStyle": "chip",
+        "id": "lower-section",
+        "labelAlign": "left",
+        "y": 475
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "colorRole": "cyan",
+      "h": 100,
+      "icon": {
+        "name": "zap",
+        "size": 26,
+        "source": "line"
+      },
+      "id": "bursty",
+      "label": "Bursty traffic",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Idle gaps + short work",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 195,
+      "x": 60,
+      "y": 240
+    },
+    {
+      "colorRole": "orange",
+      "h": 100,
+      "icon": {
+        "name": "cloud",
+        "size": 26,
+        "source": "line"
+      },
+      "id": "lambda",
+      "label": "Lambda",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Requests + compute duration",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 225,
+      "x": 490,
+      "y": 240
+    },
+    {
+      "colorRole": "mint",
+      "h": 100,
+      "icon": {
+        "name": "gauge",
+        "size": 26,
+        "source": "line"
+      },
+      "id": "steady",
+      "label": "Steady traffic",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Sustained utilization",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 195,
+      "x": 60,
+      "y": 565
+    },
+    {
+      "colorRole": "mint",
+      "h": 100,
+      "icon": {
+        "name": "docker",
+        "size": 26,
+        "source": "brand"
+      },
+      "id": "container",
+      "label": "Container",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Package + scale services",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 250,
+      "x": 465,
+      "y": 550
+    },
+    {
+      "colorRole": "cyan",
+      "h": 95,
+      "icon": {
+        "name": "server",
+        "size": 26,
+        "source": "line"
+      },
+      "id": "vm",
+      "label": "VM",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "OS control + fixed capacity",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 250,
+      "x": 465,
+      "y": 725
+    },
+    {
+      "colorRole": "orange",
+      "h": 100,
+      "icon": {
+        "name": "gauge",
+        "size": 26,
+        "source": "line"
+      },
+      "id": "cost-curve",
+      "label": "Cost crossover",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Usage spend = capacity + ops",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 295,
+      "x": 65,
+      "y": 795
+    }
+  ],
+  "theme": "paper",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 1,
+        "cyclesPerLoop": 1,
+        "edgeIds": [
+          "burst-route",
+          "lambda-cost"
+        ],
+        "effectiveSpeedPxPerSec": 244.50077153879693,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          3000
+        ],
+        "segDurMs": [
+          961.1421613150641,
+          5038.857838684936
+        ],
+        "segStartMs": [
+          0,
+          961.1421613150641
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 6000
+      }
+    ],
+    "durationMs": 6000,
+    "fps": 25,
+    "grids": {
+      "40": 150,
+      "50": 120
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "orange",
+        "word": "crossover"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Serverless, containers, or VMs?",
+      "Use the crossover."
+    ],
+    "shadow": {
+      "dx": 2,
+      "dy": 2,
+      "kind": "offset"
+    },
+    "size": 35,
+    "subtitle": {
+      "font": "condensed",
+      "size": 18,
+      "text": "COMPARE TOTAL COST AT YOUR REAL DUTY CYCLE"
+    },
+    "text": "Serverless, containers, or VMs? Use the crossover.",
+    "x": 400,
+    "y": 57
+  },
+  "warnings": []
+}

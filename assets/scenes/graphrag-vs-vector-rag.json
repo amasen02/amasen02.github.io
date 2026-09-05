@@ -1,0 +1,398 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "cyan",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "local-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 390,
+      "targetAnchor": "top",
+      "text": "Best fit: specific facts in a few relevant passages.",
+      "x": 330,
+      "y": 463
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "orange",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "global-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 310,
+      "targetAnchor": "top",
+      "text": "Best fit: themes spanning many connected facts.",
+      "x": 70,
+      "y": 800
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "mint",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "cost-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 300,
+      "targetAnchor": "top",
+      "text": "Extraction + summaries add indexing work. Keep source links.",
+      "x": 430,
+      "y": 800
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "query",
+      "fromAnchor": "bottom",
+      "id": "vector-query",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "embed query"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "chunks",
+      "toAnchor": "top"
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "chunks",
+      "fromAnchor": "right",
+      "id": "similarity",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "rank"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "nearest",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "query",
+      "fromAnchor": "left",
+      "id": "graph-query",
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "entities",
+      "toAnchor": "left",
+      "waypoints": [
+        {
+          "x": 24,
+          "y": 225
+        },
+        {
+          "x": 24,
+          "y": 690
+        }
+      ]
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "entities",
+      "fromAnchor": "right",
+      "id": "cluster",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "group"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "communities",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "communities",
+      "fromAnchor": "right",
+      "id": "synthesise",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "merge"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2.5,
+      "style": "line",
+      "to": "answer",
+      "toAnchor": "left"
+    }
+  ],
+  "grain": false,
+  "id": "graphrag-vs-vector-rag",
+  "layout": {
+    "divider": {
+      "style": "dotted"
+    },
+    "kind": "split-comparison",
+    "sections": [
+      {
+        "colorRole": "cyan",
+        "h": 365,
+        "header": "Vector RAG",
+        "headerStyle": "chip",
+        "id": "vector-section",
+        "labelAlign": "left",
+        "y": 155
+      },
+      {
+        "colorRole": "orange",
+        "h": 380,
+        "header": "GraphRAG",
+        "headerStyle": "chip",
+        "id": "graph-section",
+        "labelAlign": "left",
+        "y": 535
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "colorRole": "neutral",
+      "h": 90,
+      "id": "query",
+      "label": "Query",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Same information need",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 200,
+      "x": 320,
+      "y": 180
+    },
+    {
+      "colorRole": "cyan",
+      "h": 100,
+      "id": "chunks",
+      "label": "Chunks",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Embedded passages",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 200,
+      "x": 130,
+      "y": 340
+    },
+    {
+      "colorRole": "cyan",
+      "h": 100,
+      "id": "nearest",
+      "label": "Nearest neighbours",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Rank by similarity",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 235,
+      "x": 460,
+      "y": 340
+    },
+    {
+      "colorRole": "orange",
+      "h": 100,
+      "id": "entities",
+      "label": "Entities",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Extract links + facts",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 190,
+      "x": 80,
+      "y": 640
+    },
+    {
+      "colorRole": "orange",
+      "h": 100,
+      "id": "communities",
+      "label": "Communities",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Cluster + summarise",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 200,
+      "x": 330,
+      "y": 640
+    },
+    {
+      "colorRole": "mint",
+      "h": 100,
+      "id": "answer",
+      "label": "Answer",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Synthesis",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "hard"
+      },
+      "w": 150,
+      "x": 590,
+      "y": 640
+    }
+  ],
+  "theme": "dark-teal",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "cyan",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "vector-query",
+          "similarity"
+        ],
+        "effectiveSpeedPxPerSec": 166.24228365658294,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          1000
+        ],
+        "segDurMs": [
+          1218.008817368335,
+          781.9911826316649
+        ],
+        "segStartMs": [
+          0,
+          1218.008817368335
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 2000
+      },
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 2,
+        "cyclesPerLoop": 2,
+        "edgeIds": [
+          "graph-query",
+          "cluster",
+          "synthesise"
+        ],
+        "effectiveSpeedPxPerSec": 234.25,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          2000
+        ],
+        "segDurMs": [
+          3487.726787620064,
+          256.13660618996795,
+          256.13660618996795
+        ],
+        "segStartMs": [
+          0,
+          3487.726787620064,
+          3743.863393810032
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 4000
+      }
+    ],
+    "durationMs": 8000,
+    "fps": 25,
+    "grids": {
+      "40": 200,
+      "50": 160
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "cyan",
+        "word": "chunks"
+      },
+      {
+        "colorRole": "orange",
+        "word": "patterns"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Vector RAG finds chunks.",
+      "GraphRAG finds patterns."
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 40,
+    "subtitle": {
+      "font": "condensed",
+      "size": 19,
+      "text": "MATCH A PASSAGE OR CONNECT KNOWLEDGE ACROSS THE CORPUS"
+    },
+    "text": "Vector RAG finds chunks. GraphRAG finds patterns.",
+    "x": 400,
+    "y": 60
+  },
+  "warnings": []
+}

@@ -1,0 +1,363 @@
+{
+  "annotations": [
+    {
+      "align": "left",
+      "arrow": true,
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 17,
+      "h": 75,
+      "id": "index-ddl",
+      "kind": "code",
+      "language": "sql",
+      "lines": [
+        {
+          "text": "CREATE INDEX people_name"
+        },
+        {
+          "text": "ON people (last, first);"
+        }
+      ],
+      "maxWidth": 190,
+      "targetAnchor": "top",
+      "w": 400,
+      "x": 60,
+      "y": 225
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "cost-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 400,
+      "targetAnchor": "top",
+      "text": "Missing prefix often means more work.",
+      "x": 70,
+      "y": 495
+    },
+    {
+      "align": "left",
+      "arrow": true,
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 18,
+      "h": 51,
+      "id": "prefix-query",
+      "kind": "code",
+      "language": "sql",
+      "lines": [
+        {
+          "text": "SELECT * FROM people WHERE last = 'Lovelace';"
+        }
+      ],
+      "maxWidth": 190,
+      "targetAnchor": "top",
+      "w": 660,
+      "x": 60,
+      "y": 620
+    },
+    {
+      "align": "left",
+      "arrow": false,
+      "colorRole": "neutral",
+      "curve": "auto",
+      "font": "annotation",
+      "fontSize": 22,
+      "id": "explain-note",
+      "kind": "callout",
+      "language": "text",
+      "maxWidth": 400,
+      "targetAnchor": "top",
+      "text": "Not a ban: skip scans and costs can change the plan. Check EXPLAIN.",
+      "x": 180,
+      "y": 830
+    }
+  ],
+  "assets": {},
+  "brand": {
+    "showSaveIcon": false,
+    "style": "none"
+  },
+  "canvas": {
+    "height": 1000,
+    "width": 800
+  },
+  "edges": [
+    {
+      "arrow": true,
+      "colorRole": "orange",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "where-first",
+      "fromAnchor": "right",
+      "id": "suffix-scan",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "no leading bound"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "seq-scan",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "mint",
+      "curveOffset": 0,
+      "dashed": false,
+      "from": "where-last",
+      "fromAnchor": "right",
+      "id": "prefix-scan",
+      "label": {
+        "pill": true,
+        "side": "auto",
+        "t": 0.5,
+        "text": "bounded range"
+      },
+      "pathType": "straight",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "index-scan",
+      "toAnchor": "left"
+    },
+    {
+      "arrow": true,
+      "colorRole": "cyan",
+      "curveOffset": 0,
+      "dashed": true,
+      "from": "index",
+      "fromAnchor": "right",
+      "id": "index-range",
+      "pathType": "orthogonal",
+      "strokeWidth": 2,
+      "style": "line",
+      "to": "index-scan",
+      "toAnchor": "right",
+      "waypoints": [
+        {
+          "x": 754,
+          "y": 277.5
+        },
+        {
+          "x": 754,
+          "y": 730
+        }
+      ]
+    }
+  ],
+  "grain": false,
+  "id": "sql-leftmost-prefix",
+  "layout": {
+    "divider": {
+      "style": "dotted"
+    },
+    "kind": "split-comparison",
+    "sections": [
+      {
+        "colorRole": "orange",
+        "h": 405,
+        "header": "MISSING THE LEADING KEY",
+        "headerStyle": "chip",
+        "id": "suffix-section",
+        "labelAlign": "left",
+        "y": 145
+      },
+      {
+        "colorRole": "mint",
+        "h": 380,
+        "header": "MATCHING THE PREFIX",
+        "headerStyle": "chip",
+        "id": "prefix-section",
+        "labelAlign": "left",
+        "y": 550
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "colorRole": "cyan",
+      "h": 105,
+      "icon": {
+        "name": "postgresql",
+        "size": 28,
+        "source": "brand"
+      },
+      "id": "index",
+      "label": "Index (last, first)",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "B-tree on people",
+      "shape": "database",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 220,
+      "x": 520,
+      "y": 225
+    },
+    {
+      "colorRole": "orange",
+      "h": 90,
+      "id": "where-first",
+      "label": "WHERE first",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "first = 'Ada'",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 220,
+      "x": 60,
+      "y": 385
+    },
+    {
+      "colorRole": "orange",
+      "h": 90,
+      "id": "seq-scan",
+      "label": "Seq scan",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "May be cheaper",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 220,
+      "x": 520,
+      "y": 385
+    },
+    {
+      "colorRole": "mint",
+      "h": 90,
+      "id": "where-last",
+      "label": "WHERE last",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "last = 'Lovelace'",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 220,
+      "x": 60,
+      "y": 685
+    },
+    {
+      "colorRole": "mint",
+      "h": 90,
+      "id": "index-scan",
+      "label": "Index scan",
+      "labelAlign": "center",
+      "labelRotate": 0,
+      "secondaryLabel": "Narrow leading-key range",
+      "shape": "rounded-rect",
+      "style": {
+        "elevation": "soft"
+      },
+      "w": 220,
+      "x": 520,
+      "y": 685
+    }
+  ],
+  "theme": "soft-light",
+  "timeline": {
+    "animations": [
+      {
+        "colorRole": "orange",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "suffix-scan"
+        ],
+        "effectiveSpeedPxPerSec": 137.14285714285714,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          875
+        ],
+        "segDurMs": [
+          1750
+        ],
+        "segStartMs": [
+          0
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1750
+      },
+      {
+        "colorRole": "mint",
+        "count": 2,
+        "cycles": 4,
+        "cyclesPerLoop": 4,
+        "edgeIds": [
+          "prefix-scan"
+        ],
+        "effectiveSpeedPxPerSec": 137.14285714285714,
+        "fadeMs": 160,
+        "kind": "particle-flow",
+        "offsetsMs": [
+          0,
+          875
+        ],
+        "segDurMs": [
+          1750
+        ],
+        "segStartMs": [
+          0
+        ],
+        "size": 9,
+        "trail": 0,
+        "travelMs": 1750
+      }
+    ],
+    "durationMs": 7000,
+    "fps": 25,
+    "grids": {
+      "40": 175,
+      "50": 140
+    },
+    "loop": true,
+    "strictFrameCount": false
+  },
+  "title": {
+    "accentWords": [
+      {
+        "colorRole": "orange",
+        "word": "index"
+      }
+    ],
+    "align": "center",
+    "font": "display",
+    "lines": [
+      "Why your composite index",
+      "is ignored"
+    ],
+    "shadow": {
+      "dx": 3,
+      "dy": 3,
+      "kind": "none"
+    },
+    "size": 42,
+    "subtitle": {
+      "font": "condensed",
+      "size": 18,
+      "text": "A B-TREE IS SORTED BY LAST, THEN FIRST WITHIN EACH LAST."
+    },
+    "text": "Why your composite index is ignored",
+    "x": 400,
+    "y": 58
+  },
+  "warnings": []
+}
