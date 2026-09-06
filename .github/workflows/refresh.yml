@@ -1,0 +1,63 @@
+name: refresh
+
+# Keeps the figures on the page tracking the accounts rather than a snapshot.
+# Runs daily, and on demand from the Actions tab.
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'build.py'
+      - 'refresh.py'
+      - 'template.html'
+      - 'data/research.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Pull live figures from the GitHub API
+        env:
+          # The default token is enough: everything read here is public.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python refresh.py
+
+      - name: Rebuild the page
+        run: python build.py
+
+      - name: Verify the build before publishing it
+        run: |
+          set -euo pipefail
+          # A refresh that produced an empty or placeholder page must not be committed.
+          test -s index.html
+          grep -q 'id="s-lead"' index.html
+          grep -q 'id="s-oss"' index.html
+          ! grep -q '{{' index.html   # every placeholder must have been substituted
+          echo "index.html $(wc -c < index.html) bytes, structure present, no placeholders left"
+
+      - name: Commit only if something actually changed
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- index.html data/live.json; then
+            echo "no change; nothing to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data/live.json
+          git commit -m "chore: refresh live figures from the GitHub API"
+          git push

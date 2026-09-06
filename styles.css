@@ -524,3 +524,78 @@ html:not(.js) .proof-replay { display: none; }
   .lead.lit, .card.lit { transform: none; }
   .constellation { transition: none; }
 }
+
+/* A sticky nav sits above the content, so anchored scrolls need headroom or the target
+   lands underneath it. */
+.lead, .card, .theme, .section { scroll-margin-top: 4.5rem; }
+
+/* ---------- flow diagrams ---------- */
+/* Each project shows its mechanism as a short flow instead of a paragraph. The SVG is in
+   the HTML, so it is present without JavaScript and carries an accessible label. */
+
+.flow-wrap { margin: 0.2rem 0 0; }
+
+.flow {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--accent);          /* arrowheads inherit this */
+  overflow: visible;
+}
+
+.flow-edge {
+  fill: none;
+  stroke: rgba(90, 214, 192, 0.42);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 4;
+}
+
+.flow-node rect {
+  fill: var(--panel-2);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.flow-node text {
+  text-anchor: middle;
+  font-family: "Inter", system-ui, sans-serif;
+  fill: var(--ink);
+}
+.fn-label { font-size: 12.5px; font-weight: 650; }
+.fn-sub {
+  font-size: 10px;
+  fill: var(--ink-faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.flow-node.n-in rect    { stroke: rgba(90, 214, 192, 0.55); }
+.flow-node.n-store rect { fill: #14313a; }
+.flow-node.n-out rect   { stroke: rgba(90, 214, 192, 0.55); fill: #123039; }
+
+/* The guard is the check that makes the project worth looking at, so it is the one
+   box that draws the eye. */
+.flow-node.n-guard rect {
+  fill: #3a2b12;
+  stroke: var(--accent-warm);
+  stroke-width: 1.8;
+}
+.flow-node.n-guard .fn-label { fill: #ffd79a; }
+.flow-node.n-guard .fn-sub   { fill: rgba(243, 182, 100, 0.75); }
+
+.flow-punch {
+  margin: 0.85rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent-warm);
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+}
+
+/* The dashes travel along each edge so the direction of flow reads at a glance. */
+@media (prefers-reduced-motion: no-preference) {
+  .flow-edge { animation: flow-dash 1.4s linear infinite; }
+  @keyframes flow-dash { to { stroke-dashoffset: -18; } }
+}
+
+@media (max-width: 560px) {
+  .fn-label { font-size: 14px; }
+  .fn-sub { font-size: 11px; }
+}

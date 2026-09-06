@@ -1,0 +1,1583 @@
+{
+  "freshcart-backend": {
+    "name": "freshcart-backend",
+    "headline": "Twelve .NET services move one order, exactly once",
+    "nodes": [
+      {
+        "id": "cookie",
+        "label": "Browser cookie",
+        "sub": "HttpOnly, SameSite=Strict",
+        "kind": "input"
+      },
+      {
+        "id": "bff",
+        "label": "Gateway mints JWT",
+        "sub": "cached per auth_time",
+        "kind": "process"
+      },
+      {
+        "id": "unique",
+        "label": "Partial unique index",
+        "sub": "OrderId, Version==1",
+        "kind": "guard"
+      },
+      {
+        "id": "events",
+        "label": "Mongo event batch",
+        "sub": "plus projection marker",
+        "kind": "store"
+      },
+      {
+        "id": "outbox",
+        "label": "Outbox claim drain",
+        "sub": "leased ClaimId per row",
+        "kind": "process"
+      },
+      {
+        "id": "read",
+        "label": "SQL read model",
+        "sub": "inbox row in-transaction",
+        "kind": "output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "cookie",
+        "to": "bff",
+        "label": "no token client-side"
+      },
+      {
+        "from": "bff",
+        "to": "unique",
+        "label": "initiate payment"
+      },
+      {
+        "from": "unique",
+        "to": "events",
+        "label": "first write wins"
+      },
+      {
+        "from": "events",
+        "to": "outbox",
+        "label": "staged event"
+      },
+      {
+        "from": "outbox",
+        "to": "read",
+        "label": "at-least-once delivery"
+      }
+    ],
+    "punchline": "A second concurrent initiate for the same order fails on a unique index in the event store."
+  },
+  "freshcart-web": {
+    "name": "freshcart-web",
+    "headline": "Angular storefront that never holds a token in JavaScript",
+    "nodes": [
+      {
+        "id": "cookie",
+        "label": "Session cookie",
+        "sub": "HttpOnly, gateway-issued",
+        "kind": "input"
+      },
+      {
+        "id": "xsrf",
+        "label": "XSRF interceptor",
+        "sub": "echoes XSRF-TOKEN header",
+        "kind": "process"
+      },
+      {
+        "id": "store",
+        "label": "Signal store",
+        "sub": "ngrx signals, zoneless",
+        "kind": "store"
+      },
+      {
+        "id": "lifecycle",
+        "label": "Serialised hub lifecycle",
+        "sub": "promise chain, handlers off()",
+        "kind": "guard"
+      },
+      {
+        "id": "hub",
+        "label": "SignalR hub",
+        "sub": "withCredentials, no accessTokenFactory",
+        "kind": "process"
+      },
+      {
+        "id": "view",
+        "label": "Order status view",
+        "sub": "realtime first, bounded poll",
+        "kind": "output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "cookie",
+        "to": "xsrf",
+        "label": "same-origin /api"
+      },
+      {
+        "from": "xsrf",
+        "to": "store",
+        "label": "typed ApiError"
+      },
+      {
+        "from": "store",
+        "to": "lifecycle",
+        "label": "auth state flips"
+      },
+      {
+        "from": "lifecycle",
+        "to": "hub",
+        "label": "start or stop"
+      },
+      {
+        "from": "hub",
+        "to": "view",
+        "label": "live status push"
+      }
+    ],
+    "punchline": "SignalR connects on the session cookie with no accessTokenFactory, so no bearer token reaches logs or JavaScript."
+  },
+  "diagif": {
+    "name": "diagif",
+    "headline": "A topic becomes a fact-checked, machine-verified looping GIF",
+    "nodes": [
+      {
+        "id": "topic",
+        "label": "Topic string",
+        "sub": "diagif make <topic>",
+        "kind": "input"
+      },
+      {
+        "id": "fetch",
+        "label": "Pinned page fetch",
+        "sub": "SSRF-hardened, 2MB cap",
+        "kind": "process"
+      },
+      {
+        "id": "facts",
+        "label": "Fact sheet claims",
+        "sub": "quotes found verbatim",
+        "kind": "process"
+      },
+      {
+        "id": "scene",
+        "label": "Chromium bbox measure",
+        "sub": "deterministic repair, no model",
+        "kind": "process"
+      },
+      {
+        "id": "gate",
+        "label": "GIF decode gate",
+        "sub": "seam hash, delay grid",
+        "kind": "guard"
+      },
+      {
+        "id": "out",
+        "label": "Looping GIF",
+        "sub": "plus 3x3 contact sheet",
+        "kind": "output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "topic",
+        "to": "fetch",
+        "label": "HN, GitHub, pages"
+      },
+      {
+        "from": "fetch",
+        "to": "facts",
+        "label": "hashed extract"
+      },
+      {
+        "from": "facts",
+        "to": "scene",
+        "label": "schema-valid scene"
+      },
+      {
+        "from": "scene",
+        "to": "gate",
+        "label": "capture and encode"
+      },
+      {
+        "from": "gate",
+        "to": "out",
+        "label": "promote"
+      }
+    ],
+    "punchline": "The gate decodes the delivered GIF and checks frame delays, loop-seam hashes and reserved-colour pixel counts."
+  },
+  "fastdl": {
+    "name": "fastdl",
+    "headline": "Downloads one file over many parallel connections",
+    "nodes": [
+      {
+        "id": "url",
+        "label": "File URL",
+        "kind": "input",
+        "sub": "one or more mirrors"
+      },
+      {
+        "id": "probe",
+        "label": "Range probe",
+        "kind": "process",
+        "sub": "expects exact Content-Range"
+      },
+      {
+        "id": "queue",
+        "label": "Chunk queue",
+        "kind": "process",
+        "sub": "workers dequeue chunks"
+      },
+      {
+        "id": "write",
+        "label": "Write at offset",
+        "kind": "process",
+        "sub": "RandomAccess, no lock"
+      },
+      {
+        "id": "bitmap",
+        "label": "Chunk bitmap",
+        "kind": "store",
+        "sub": ".fdlmeta sidecar file"
+      },
+      {
+        "id": "verify",
+        "label": "Byte-identical SHA-256",
+        "kind": "guard",
+        "sub": "asserted in tests"
+      }
+    ],
+    "edges": [
+      {
+        "from": "url",
+        "to": "probe",
+        "label": "Range 0-0"
+      },
+      {
+        "from": "probe",
+        "to": "queue",
+        "label": "206 accepted"
+      },
+      {
+        "from": "queue",
+        "to": "write",
+        "label": "N parallel workers"
+      },
+      {
+        "from": "write",
+        "to": "bitmap",
+        "label": "chunk complete"
+      },
+      {
+        "from": "bitmap",
+        "to": "queue",
+        "label": "resume skips done"
+      },
+      {
+        "from": "write",
+        "to": "verify",
+        "label": "assembled output"
+      }
+    ],
+    "punchline": "Segmentation is accepted only when the probe returns 206 with Content-Range exactly 0-0."
+  },
+  "dupesweep": {
+    "name": "dupesweep",
+    "headline": "Finds byte-identical duplicates and quarantines them reversibly",
+    "nodes": [
+      {
+        "id": "roots",
+        "label": "Directory roots",
+        "kind": "input",
+        "sub": "one or more"
+      },
+      {
+        "id": "size",
+        "label": "Group by size",
+        "kind": "process",
+        "sub": "no bytes read"
+      },
+      {
+        "id": "head",
+        "label": "First 64KB hash",
+        "kind": "process",
+        "sub": "SHA-256, parallel"
+      },
+      {
+        "id": "full",
+        "label": "Full SHA-256",
+        "kind": "process",
+        "sub": "survivors only"
+      },
+      {
+        "id": "quarantine",
+        "label": "Quarantine move",
+        "kind": "store",
+        "sub": "writes manifest.json"
+      },
+      {
+        "id": "restore",
+        "label": "Restore never overwrites",
+        "kind": "guard",
+        "sub": "skips occupied path"
+      }
+    ],
+    "edges": [
+      {
+        "from": "roots",
+        "to": "size",
+        "label": "file lengths"
+      },
+      {
+        "from": "size",
+        "to": "head",
+        "label": "same-size groups"
+      },
+      {
+        "from": "head",
+        "to": "full",
+        "label": "prefix matches"
+      },
+      {
+        "from": "full",
+        "to": "quarantine",
+        "label": "keep policy picks"
+      },
+      {
+        "from": "quarantine",
+        "to": "restore",
+        "label": "dsweep restore"
+      }
+    ],
+    "punchline": "Parallel hashing writes into a pre-allocated array by index, so scan order and --keep first stay deterministic."
+  },
+  "dupehunter": {
+    "name": "dupehunter",
+    "headline": "Finds duplicate files, counting hardlinks as one",
+    "nodes": [
+      {
+        "id": "walk",
+        "label": "Directory walk",
+        "kind": "input",
+        "sub": "size and glob filters"
+      },
+      {
+        "id": "collapse",
+        "label": "Collapse by inode",
+        "kind": "process",
+        "sub": "paths become PhysicalFile"
+      },
+      {
+        "id": "hash",
+        "label": "Streaming SHA-256",
+        "kind": "process",
+        "sub": "size collisions only"
+      },
+      {
+        "id": "report",
+        "label": "Group report",
+        "kind": "output",
+        "sub": "text or JSON"
+      },
+      {
+        "id": "link",
+        "label": "Link then rename",
+        "kind": "guard",
+        "sub": "atomic, temp file"
+      }
+    ],
+    "edges": [
+      {
+        "from": "walk",
+        "to": "collapse",
+        "label": "device:inode key"
+      },
+      {
+        "from": "collapse",
+        "to": "hash",
+        "label": "same-size buckets"
+      },
+      {
+        "from": "hash",
+        "to": "report",
+        "label": "identical groups"
+      },
+      {
+        "from": "report",
+        "to": "link",
+        "label": "hardlink confirmed"
+      }
+    ],
+    "punchline": "Reclaimable space is size times physical files minus one, so a hardlink pass is idempotent."
+  },
+  "postwright": {
+    "name": "postwright",
+    "headline": "Drafts social posts, publishes only after verified readback",
+    "punchline": "Release has three outcomes \u2014 released, refused, uncertain \u2014 because a retry after an ambiguous publish duplicate-posts.",
+    "nodes": [
+      {
+        "id": "topic",
+        "label": "Topic line",
+        "kind": "input",
+        "sub": "one subject"
+      },
+      {
+        "id": "drafts",
+        "label": "Staged drafts",
+        "kind": "store",
+        "sub": "X, LinkedIn, dev.to"
+      },
+      {
+        "id": "lint",
+        "label": "Twelve lint rules",
+        "kind": "process",
+        "sub": "R1-R12 per channel"
+      },
+      {
+        "id": "publish",
+        "label": "Publish one channel",
+        "kind": "process",
+        "sub": "--confirm required"
+      },
+      {
+        "id": "readback",
+        "label": "Readback match",
+        "kind": "guard",
+        "sub": "refetch the live post"
+      },
+      {
+        "id": "receipt",
+        "label": "Receipt or uncertain",
+        "kind": "output",
+        "sub": "inflight blocks retry"
+      }
+    ],
+    "edges": [
+      {
+        "from": "topic",
+        "to": "drafts",
+        "label": "stage on disk"
+      },
+      {
+        "from": "drafts",
+        "to": "lint"
+      },
+      {
+        "from": "lint",
+        "to": "publish",
+        "label": "hash must match"
+      },
+      {
+        "from": "publish",
+        "to": "readback"
+      },
+      {
+        "from": "readback",
+        "to": "receipt"
+      }
+    ]
+  },
+  "polyai-dotnet": {
+    "name": "polyai-dotnet",
+    "headline": "One C# interface over five LLM provider APIs",
+    "punchline": "One try block turns every provider payload failure into a PolyAIException carrying the raw response body.",
+    "nodes": [
+      {
+        "id": "call",
+        "label": "ChatAsync call",
+        "kind": "input",
+        "sub": "messages plus tools"
+      },
+      {
+        "id": "router",
+        "label": "Router lookup",
+        "kind": "process",
+        "sub": "by name or default"
+      },
+      {
+        "id": "schema",
+        "label": "One tool schema",
+        "kind": "process",
+        "sub": "wrapped per provider"
+      },
+      {
+        "id": "http",
+        "label": "Provider request",
+        "kind": "process",
+        "sub": "named HttpClient"
+      },
+      {
+        "id": "parse",
+        "label": "Parse inside try",
+        "kind": "guard",
+        "sub": "raw body preserved"
+      },
+      {
+        "id": "result",
+        "label": "ChatResponse or throw",
+        "kind": "output",
+        "sub": "always PolyAIException"
+      }
+    ],
+    "edges": [
+      {
+        "from": "call",
+        "to": "router"
+      },
+      {
+        "from": "router",
+        "to": "schema",
+        "label": "provider wire format"
+      },
+      {
+        "from": "schema",
+        "to": "http"
+      },
+      {
+        "from": "http",
+        "to": "parse",
+        "label": "response body"
+      },
+      {
+        "from": "parse",
+        "to": "result"
+      }
+    ]
+  },
+  "credscan": {
+    "name": "credscan",
+    "headline": "Scans code and AI agent configs for secrets",
+    "punchline": "A JWT's dots split the entropy tokenizer, so dedup keys on character-span overlap, not matched text.",
+    "nodes": [
+      {
+        "id": "files",
+        "label": "Repo files",
+        "kind": "input",
+        "sub": "or staged index blob"
+      },
+      {
+        "id": "mcp",
+        "label": "MCP config parse",
+        "kind": "process",
+        "sub": "env, headers, args"
+      },
+      {
+        "id": "shapes",
+        "label": "Shape regexes",
+        "kind": "process",
+        "sub": "AWS, JWT, PEM"
+      },
+      {
+        "id": "entropy",
+        "label": "Entropy fallback",
+        "kind": "process",
+        "sub": "4.5 bits per char"
+      },
+      {
+        "id": "spans",
+        "label": "Span overlap check",
+        "kind": "guard",
+        "sub": "claimed spans skipped"
+      },
+      {
+        "id": "report",
+        "label": "Redacted findings",
+        "kind": "output",
+        "sub": "exit 1 in CI"
+      }
+    ],
+    "edges": [
+      {
+        "from": "files",
+        "to": "mcp",
+        "label": "walk or staged"
+      },
+      {
+        "from": "mcp",
+        "to": "shapes",
+        "label": "unclaimed text"
+      },
+      {
+        "from": "shapes",
+        "to": "entropy",
+        "label": "unclaimed text"
+      },
+      {
+        "from": "entropy",
+        "to": "spans"
+      },
+      {
+        "from": "spans",
+        "to": "report"
+      }
+    ]
+  },
+  "a11y-scope": {
+    "name": "a11y-scope",
+    "headline": "Scheduled WCAG scans of your sites, one container",
+    "punchline": "No queue: the scans table is the state machine, with failure reasons persisted to the row.",
+    "nodes": [
+      {
+        "id": "trigger",
+        "label": "Scan trigger",
+        "kind": "input",
+        "sub": "cron, button, webhook"
+      },
+      {
+        "id": "pending",
+        "label": "Pending scan row",
+        "kind": "store",
+        "sub": "scans table, 202"
+      },
+      {
+        "id": "scan",
+        "label": "Playwright + axe",
+        "kind": "process",
+        "sub": "headless Chromium, WCAG tags"
+      },
+      {
+        "id": "nodes",
+        "label": "Row per node",
+        "kind": "store",
+        "sub": "selector, HTML, summary"
+      },
+      {
+        "id": "terminal",
+        "label": "Done-or-failed row",
+        "kind": "guard",
+        "sub": "errorMessage persisted in finally"
+      },
+      {
+        "id": "out",
+        "label": "Trend and alert",
+        "kind": "output",
+        "sub": "last 30 scans"
+      }
+    ],
+    "edges": [
+      {
+        "from": "trigger",
+        "to": "pending",
+        "label": "insert, return 202"
+      },
+      {
+        "from": "pending",
+        "to": "scan",
+        "label": "setImmediate"
+      },
+      {
+        "from": "scan",
+        "to": "nodes",
+        "label": "one row each"
+      },
+      {
+        "from": "nodes",
+        "to": "terminal",
+        "label": "violationCount written"
+      },
+      {
+        "from": "terminal",
+        "to": "out",
+        "label": "threshold met"
+      }
+    ]
+  },
+  "kindrelay": {
+    "name": "kindrelay",
+    "headline": "Turns volunteer handover notes into cited, approved tasks",
+    "punchline": "No LLM anywhere: a 30-line prefix matcher makes every task traceable to its source line.",
+    "nodes": [
+      {
+        "id": "notes",
+        "label": "Handover notes",
+        "kind": "input",
+        "sub": "pasted source text"
+      },
+      {
+        "id": "prefix",
+        "label": "Prefix matcher",
+        "kind": "process",
+        "sub": "ACTION:, TODO:, - [ ]"
+      },
+      {
+        "id": "drafts",
+        "label": "Draft tasks",
+        "kind": "store",
+        "sub": "IndexedDB, verbatim quote"
+      },
+      {
+        "id": "approve",
+        "label": "Human approval",
+        "kind": "process",
+        "sub": "nothing inferred"
+      },
+      {
+        "id": "packet",
+        "label": "Escaped packet",
+        "kind": "output",
+        "sub": "JSON or Markdown"
+      },
+      {
+        "id": "digest",
+        "label": "SHA-256 recheck",
+        "kind": "guard",
+        "sub": "tampered excerpt rejected"
+      }
+    ],
+    "edges": [
+      {
+        "from": "notes",
+        "to": "prefix"
+      },
+      {
+        "from": "prefix",
+        "to": "drafts",
+        "label": "title plus citation"
+      },
+      {
+        "from": "drafts",
+        "to": "approve",
+        "label": "draft until approved"
+      },
+      {
+        "from": "approve",
+        "to": "packet",
+        "label": "selected only"
+      },
+      {
+        "from": "packet",
+        "to": "digest",
+        "label": "successor imports"
+      },
+      {
+        "from": "digest",
+        "to": "drafts",
+        "label": "reset to draft"
+      }
+    ]
+  },
+  "profile-studio": {
+    "name": "profile-studio",
+    "headline": "Builds a GitHub profile README from fetched repo evidence",
+    "punchline": "validate_plan rejects any repo ID not in the fetched evidence, so the model cannot invent a project.",
+    "nodes": [
+      {
+        "id": "evidence",
+        "label": "GitHub evidence",
+        "kind": "input",
+        "sub": "public repos, capped"
+      },
+      {
+        "id": "planner",
+        "label": "LLM picks repos",
+        "kind": "process",
+        "sub": "untrusted, no redirects"
+      },
+      {
+        "id": "validate",
+        "label": "validate_plan",
+        "kind": "guard",
+        "sub": "IDs must exist"
+      },
+      {
+        "id": "art",
+        "label": "Seeded SVG art",
+        "kind": "process",
+        "sub": "SHA-256 seed, deterministic"
+      },
+      {
+        "id": "readme",
+        "label": "README render",
+        "kind": "process",
+        "sub": "between marker regions"
+      },
+      {
+        "id": "write",
+        "label": "Allowlisted write",
+        "kind": "output",
+        "sub": "README.md, assets SVGs"
+      }
+    ],
+    "edges": [
+      {
+        "from": "evidence",
+        "to": "planner",
+        "label": "six candidates"
+      },
+      {
+        "from": "planner",
+        "to": "validate",
+        "label": "JSON plan"
+      },
+      {
+        "from": "validate",
+        "to": "art",
+        "label": "theme, seed"
+      },
+      {
+        "from": "art",
+        "to": "readme",
+        "label": "SVG plates"
+      },
+      {
+        "from": "readme",
+        "to": "write",
+        "label": "fail-closed"
+      }
+    ]
+  },
+  "jurytrace": {
+    "name": "jurytrace",
+    "headline": "Two judges score each trace; disagreements go to humans",
+    "punchline": "A judge's quoted evidence must byte-match source[start:end] in the trace, or the verdict becomes a hard failure.",
+    "nodes": [
+      {
+        "id": "traces",
+        "label": "Trace JSONL",
+        "kind": "input",
+        "sub": "trace_id, output, label"
+      },
+      {
+        "id": "hash",
+        "label": "SHA-256 dataset hash",
+        "kind": "process",
+        "sub": "binds run to bytes"
+      },
+      {
+        "id": "judges",
+        "label": "Two judges",
+        "kind": "process",
+        "sub": "parallel, distinct configs"
+      },
+      {
+        "id": "evidence",
+        "label": "Evidence span check",
+        "kind": "guard",
+        "sub": "source[start:end] must match"
+      },
+      {
+        "id": "receipts",
+        "label": "Agreed receipts",
+        "kind": "output",
+        "sub": "JSON, JSONL, HTML"
+      },
+      {
+        "id": "queue",
+        "label": "Review queue",
+        "kind": "store",
+        "sub": "SQLite, run-bound rows"
+      }
+    ],
+    "edges": [
+      {
+        "from": "traces",
+        "to": "hash"
+      },
+      {
+        "from": "hash",
+        "to": "judges"
+      },
+      {
+        "from": "judges",
+        "to": "evidence"
+      },
+      {
+        "from": "evidence",
+        "to": "receipts",
+        "label": "verdicts agree"
+      },
+      {
+        "from": "evidence",
+        "to": "queue",
+        "label": "disagree or fabricated"
+      }
+    ]
+  },
+  "mcp-breakbench": {
+    "name": "mcp-breakbench",
+    "headline": "Reproduces MCP tool failures as deterministic JSON receipts",
+    "punchline": "Nothing a server advertises can authorize a call; an unlisted tool yields a safe-skip receipt.",
+    "nodes": [
+      {
+        "id": "config",
+        "label": "Run config",
+        "kind": "input",
+        "sub": "command, argv, allowlist"
+      },
+      {
+        "id": "stdio",
+        "label": "Stdio subprocess",
+        "kind": "process",
+        "sub": "real MCP server"
+      },
+      {
+        "id": "snapshot",
+        "label": "Tool snapshot",
+        "kind": "process",
+        "sub": "schemas, drift diff"
+      },
+      {
+        "id": "allowlist",
+        "label": "Allowlist gate",
+        "kind": "guard",
+        "sub": "unlisted tool skipped"
+      },
+      {
+        "id": "call",
+        "label": "Bounded call",
+        "kind": "process",
+        "sub": "timeout, stderr cap"
+      },
+      {
+        "id": "receipts",
+        "label": "Typed receipts",
+        "kind": "output",
+        "sub": "outcome enum, HTML"
+      }
+    ],
+    "edges": [
+      {
+        "from": "config",
+        "to": "stdio"
+      },
+      {
+        "from": "stdio",
+        "to": "snapshot"
+      },
+      {
+        "from": "snapshot",
+        "to": "allowlist"
+      },
+      {
+        "from": "allowlist",
+        "to": "call",
+        "label": "tool allowlisted"
+      },
+      {
+        "from": "allowlist",
+        "to": "receipts",
+        "label": "safe skip"
+      },
+      {
+        "from": "call",
+        "to": "receipts"
+      }
+    ]
+  },
+  "resumeproof": {
+    "name": "resumeproof",
+    "headline": "Crashes a workflow between effect and ack, then resumes",
+    "punchline": "os._exit(86) fires after the ledger commits; a partial unique index makes a duplicate effect impossible.",
+    "nodes": [
+      {
+        "id": "action",
+        "label": "Approved action",
+        "kind": "input",
+        "sub": "SHA-256 digest bound"
+      },
+      {
+        "id": "ledger",
+        "label": "Ledger commit",
+        "kind": "process",
+        "sub": "effect lands, unacked"
+      },
+      {
+        "id": "crash",
+        "label": "Kill and resume",
+        "kind": "process",
+        "sub": "os._exit(86), new process"
+      },
+      {
+        "id": "index",
+        "label": "Idempotency key index",
+        "kind": "guard",
+        "sub": "partial unique index"
+      },
+      {
+        "id": "receipt",
+        "label": "Replayed receipt",
+        "kind": "output",
+        "sub": "exactly one effect"
+      },
+      {
+        "id": "reconcile",
+        "label": "Unknown, reconcile",
+        "kind": "store",
+        "sub": "human-audited close"
+      }
+    ],
+    "edges": [
+      {
+        "from": "action",
+        "to": "ledger"
+      },
+      {
+        "from": "ledger",
+        "to": "crash",
+        "label": "before ack"
+      },
+      {
+        "from": "crash",
+        "to": "index"
+      },
+      {
+        "from": "index",
+        "to": "receipt",
+        "label": "idempotent mode"
+      },
+      {
+        "from": "index",
+        "to": "reconcile",
+        "label": "non-idempotent mode"
+      }
+    ]
+  },
+  "memory-mismatch-lab": {
+    "name": "memory-mismatch-lab",
+    "headline": "SQLite agent memory scoped per tenant, with correction lineage",
+    "punchline": "Context packets are trimmed to exact serialised UTF-8 bytes of the envelope, not estimated token counts.",
+    "nodes": [
+      {
+        "id": "fact",
+        "label": "Fact + Scope",
+        "kind": "input",
+        "sub": "tenant, user, project"
+      },
+      {
+        "id": "scope",
+        "label": "Tenant scope check",
+        "kind": "guard",
+        "sub": "cross-tenant raises ValueError"
+      },
+      {
+        "id": "store",
+        "label": "SQLite lineage",
+        "kind": "store",
+        "sub": "corrects_id, superseded_by"
+      },
+      {
+        "id": "packer",
+        "label": "Byte budget packer",
+        "kind": "process",
+        "sub": "exact UTF-8 bytes"
+      },
+      {
+        "id": "packet",
+        "label": "Context packet",
+        "kind": "output",
+        "sub": "trimmed to budget"
+      },
+      {
+        "id": "audit",
+        "label": "Audit export",
+        "kind": "output",
+        "sub": "deleted values redacted"
+      }
+    ],
+    "edges": [
+      {
+        "from": "fact",
+        "to": "scope"
+      },
+      {
+        "from": "scope",
+        "to": "store",
+        "label": "scoped write"
+      },
+      {
+        "from": "store",
+        "to": "packer",
+        "label": "active heads"
+      },
+      {
+        "from": "packer",
+        "to": "packet"
+      },
+      {
+        "from": "store",
+        "to": "audit",
+        "label": "tombstoned lineage"
+      }
+    ]
+  },
+  "citation-drift-lab": {
+    "name": "citation-drift-lab",
+    "headline": "Offline RAG that re-checks its citations when documents change",
+    "punchline": "Citations are exact character offsets, so auditing a quote is a string slice, not a model call.",
+    "nodes": [
+      {
+        "id": "doc",
+        "label": "Markdown version",
+        "kind": "input",
+        "sub": "SHA-256, char offsets"
+      },
+      {
+        "id": "retrieve",
+        "label": "BM25 retrieve",
+        "kind": "process",
+        "sub": "lexical, model-free"
+      },
+      {
+        "id": "loop",
+        "label": "Revise or abstain",
+        "kind": "process",
+        "sub": "bounded 0-3 loop"
+      },
+      {
+        "id": "receipt",
+        "label": "Answer receipt",
+        "kind": "store",
+        "sub": "claims plus spans"
+      },
+      {
+        "id": "replay",
+        "label": "Re-slice spans",
+        "kind": "guard",
+        "sub": "numerals, negation compared"
+      },
+      {
+        "id": "report",
+        "label": "Drift report",
+        "kind": "output",
+        "sub": "relocated vs changed"
+      }
+    ],
+    "edges": [
+      {
+        "from": "doc",
+        "to": "retrieve"
+      },
+      {
+        "from": "retrieve",
+        "to": "loop",
+        "label": "top chunks"
+      },
+      {
+        "from": "loop",
+        "to": "receipt",
+        "label": "cited claims"
+      },
+      {
+        "from": "receipt",
+        "to": "replay",
+        "label": "replay citations"
+      },
+      {
+        "from": "doc",
+        "to": "replay",
+        "label": "edited version"
+      },
+      {
+        "from": "replay",
+        "to": "report"
+      }
+    ]
+  },
+  "centaurloop-agent-governor": {
+    "name": "centaurloop-agent-governor",
+    "headline": "Three standalone checks on agent patches and loop logs",
+    "punchline": "ASTGate returns the SyntaxError's line, column and message, not a bare boolean the agent cannot act on.",
+    "nodes": [
+      {
+        "id": "patch",
+        "label": "Proposed patch",
+        "kind": "input",
+        "sub": "agent-written Python"
+      },
+      {
+        "id": "ast",
+        "label": "ast.parse check",
+        "kind": "guard",
+        "sub": "line, column, message"
+      },
+      {
+        "id": "banned",
+        "label": "Banned phrase scan",
+        "kind": "process",
+        "sub": "TODO, TBD, example.com"
+      },
+      {
+        "id": "verdict",
+        "label": "(ok, message)",
+        "kind": "output",
+        "sub": "returned to caller"
+      },
+      {
+        "id": "log",
+        "label": "Agent log",
+        "kind": "input",
+        "sub": "loop telemetry"
+      },
+      {
+        "id": "tail",
+        "label": "Truncated log",
+        "kind": "output",
+        "sub": "tail plus errors"
+      }
+    ],
+    "edges": [
+      {
+        "from": "patch",
+        "to": "ast"
+      },
+      {
+        "from": "patch",
+        "to": "banned"
+      },
+      {
+        "from": "ast",
+        "to": "verdict"
+      },
+      {
+        "from": "banned",
+        "to": "verdict"
+      },
+      {
+        "from": "log",
+        "to": "tail",
+        "label": "last N lines"
+      }
+    ]
+  },
+  "transactional-outbox-engine": {
+    "name": "transactional-outbox-engine",
+    "headline": "In-memory teaching model of the transactional outbox pattern",
+    "punchline": "A replayed event_id returns False instead of raising, so deduplication is ordinary control flow, asserted by test.",
+    "nodes": [
+      {
+        "id": "order",
+        "label": "Order + event",
+        "kind": "input",
+        "sub": "one caller intent"
+      },
+      {
+        "id": "save",
+        "label": "One save call",
+        "kind": "process",
+        "sub": "no real transaction"
+      },
+      {
+        "id": "outbox",
+        "label": "Outbox table",
+        "kind": "store",
+        "sub": "PENDING rows, dict"
+      },
+      {
+        "id": "relayer",
+        "label": "Relayer for-loop",
+        "kind": "process",
+        "sub": "flips to PUBLISHED"
+      },
+      {
+        "id": "dedup",
+        "label": "Event-id dedup",
+        "kind": "guard",
+        "sub": "replay returns False"
+      },
+      {
+        "id": "consumer",
+        "label": "Consumer store",
+        "kind": "output",
+        "sub": "one entry per id"
+      }
+    ],
+    "edges": [
+      {
+        "from": "order",
+        "to": "save"
+      },
+      {
+        "from": "save",
+        "to": "outbox",
+        "label": "both rows"
+      },
+      {
+        "from": "outbox",
+        "to": "relayer",
+        "label": "drain pending"
+      },
+      {
+        "from": "relayer",
+        "to": "dedup"
+      },
+      {
+        "from": "dedup",
+        "to": "consumer",
+        "label": "first time only"
+      }
+    ]
+  },
+  "pulse-signals-engine": {
+    "name": "pulse-signals-engine",
+    "headline": "Fine-grained reactivity in Python: reads track, writes invalidate",
+    "punchline": "Every evaluation discards its old dependency edges and rebuilds them, so branch-dependent reads never leak stale subscriptions.",
+    "nodes": [
+      {
+        "id": "set",
+        "label": "Signal write",
+        "kind": "input",
+        "sub": "new value assigned"
+      },
+      {
+        "id": "dirty",
+        "label": "Push dirty marks",
+        "kind": "process",
+        "sub": "clean-to-dirty once"
+      },
+      {
+        "id": "cache",
+        "label": "Computed cache",
+        "kind": "store",
+        "sub": "held until dirty"
+      },
+      {
+        "id": "rebuild",
+        "label": "Edges rebuilt",
+        "kind": "guard",
+        "sub": "old subscribers discarded"
+      },
+      {
+        "id": "recompute",
+        "label": "Lazy recompute",
+        "kind": "process",
+        "sub": "only on read"
+      },
+      {
+        "id": "effects",
+        "label": "Batched effects",
+        "kind": "output",
+        "sub": "flushed on exit"
+      }
+    ],
+    "edges": [
+      {
+        "from": "set",
+        "to": "dirty"
+      },
+      {
+        "from": "dirty",
+        "to": "cache",
+        "label": "mark stale"
+      },
+      {
+        "from": "cache",
+        "to": "rebuild",
+        "label": "on read"
+      },
+      {
+        "from": "rebuild",
+        "to": "recompute"
+      },
+      {
+        "from": "recompute",
+        "to": "effects",
+        "label": "notify"
+      }
+    ]
+  },
+  "concurrent-cache-dotnet9": {
+    "name": "concurrent-cache-dotnet9",
+    "headline": "Lock-guarded LRU cache with TTL and compare-and-swap",
+    "punchline": "Compare-and-swap is pinned by five threads running 100 retry-loop increments each and asserting exactly 500.",
+    "nodes": [
+      {
+        "id": "call",
+        "label": "Key request",
+        "kind": "input",
+        "sub": "get, set, or CAS"
+      },
+      {
+        "id": "lock",
+        "label": "One global lock",
+        "kind": "process",
+        "sub": "every op serialised"
+      },
+      {
+        "id": "ttl",
+        "label": "TTL check",
+        "kind": "process",
+        "sub": "expired counts twice"
+      },
+      {
+        "id": "store",
+        "label": "OrderedDict entries",
+        "kind": "store",
+        "sub": "LRU order, version"
+      },
+      {
+        "id": "cas",
+        "label": "Expected value match",
+        "kind": "guard",
+        "sub": "swap only if equal"
+      },
+      {
+        "id": "stats",
+        "label": "CacheStats snapshot",
+        "kind": "output",
+        "sub": "hits, misses, evictions"
+      }
+    ],
+    "edges": [
+      {
+        "from": "call",
+        "to": "lock"
+      },
+      {
+        "from": "lock",
+        "to": "ttl",
+        "label": "on read"
+      },
+      {
+        "from": "ttl",
+        "to": "store",
+        "label": "LRU touch"
+      },
+      {
+        "from": "store",
+        "to": "cas",
+        "label": "on write"
+      },
+      {
+        "from": "cas",
+        "to": "stats"
+      },
+      {
+        "from": "store",
+        "to": "stats",
+        "label": "oldest evicted"
+      }
+    ]
+  },
+  "ebpf-credscan-security": {
+    "name": "ebpf-credscan-security",
+    "headline": "Regex-scans byte payloads for leaked keys and injections",
+    "punchline": "Alerts keep only a 30-byte truncated match, so the audit log never echoes the whole secret.",
+    "nodes": [
+      {
+        "id": "payload",
+        "label": "Payload bytes",
+        "kind": "input",
+        "sub": "src and dst IP"
+      },
+      {
+        "id": "regexes",
+        "label": "Six regexes",
+        "kind": "process",
+        "sub": "first match wins"
+      },
+      {
+        "id": "snippet",
+        "label": "30-byte snippet",
+        "kind": "guard",
+        "sub": "errors='replace' decode"
+      },
+      {
+        "id": "alerts",
+        "label": "Audit list",
+        "kind": "store",
+        "sub": "in-memory alerts"
+      },
+      {
+        "id": "decision",
+        "label": "ALLOW or DROP",
+        "kind": "output",
+        "sub": "verdict plus reason"
+      }
+    ],
+    "edges": [
+      {
+        "from": "payload",
+        "to": "regexes"
+      },
+      {
+        "from": "regexes",
+        "to": "decision",
+        "label": "no match"
+      },
+      {
+        "from": "regexes",
+        "to": "snippet",
+        "label": "match"
+      },
+      {
+        "from": "snippet",
+        "to": "alerts"
+      },
+      {
+        "from": "alerts",
+        "to": "decision",
+        "label": "DROP with alert"
+      }
+    ]
+  },
+  "medium-blog-publisher": {
+    "name": "medium-blog-publisher",
+    "headline": "Publishes Markdown to Medium, or stages the draft locally",
+    "punchline": "With no token in the environment nothing is sent; the exact payload is written to disk instead.",
+    "nodes": [
+      {
+        "id": "article",
+        "label": "Markdown + frontmatter",
+        "kind": "input",
+        "sub": "title, tags, publish_status"
+      },
+      {
+        "id": "payload",
+        "label": "Payload builder",
+        "kind": "process",
+        "sub": "article.py dataclass"
+      },
+      {
+        "id": "token",
+        "label": "Env token check",
+        "kind": "guard",
+        "sub": "never a CLI flag"
+      },
+      {
+        "id": "pending",
+        "label": "drafts/pending JSON",
+        "kind": "store",
+        "sub": "exact unsent payload"
+      },
+      {
+        "id": "post",
+        "label": "POST to Medium",
+        "kind": "process",
+        "sub": "/me then /posts"
+      },
+      {
+        "id": "receipt",
+        "label": "Receipt file",
+        "kind": "output",
+        "sub": "drafts/published/"
+      }
+    ],
+    "edges": [
+      {
+        "from": "article",
+        "to": "payload"
+      },
+      {
+        "from": "payload",
+        "to": "token"
+      },
+      {
+        "from": "token",
+        "to": "pending",
+        "label": "no token"
+      },
+      {
+        "from": "token",
+        "to": "post",
+        "label": "token set"
+      },
+      {
+        "from": "post",
+        "to": "receipt"
+      }
+    ]
+  }
+}

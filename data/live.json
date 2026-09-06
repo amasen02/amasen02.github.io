@@ -1,0 +1,166 @@
+{
+  "generated_at": "2026-09-06T13:54:02+00:00",
+  "repo_count": 32,
+  "total_stars": 345,
+  "external_repo_count": 42,
+  "pr_total": 57,
+  "pr_merged": 9,
+  "pr_open": 34,
+  "pr_closed_unmerged": 14,
+  "stars": {
+    "a11y-scope": 1,
+    "amasen02": 0,
+    "amasen02.github.io": 0,
+    "AutoDrivingCarSimulation": 0,
+    "Banking-System": 0,
+    "centaurloop-agent-governor": 0,
+    "Chinook": 0,
+    "citation-drift-lab": 0,
+    "concurrent-cache-dotnet9": 0,
+    "credcheck": 0,
+    "credscan": 1,
+    "diagif": 0,
+    "dupehunter": 23,
+    "dupesweep": 92,
+    "ebpf-credscan-security": 0,
+    "fastdl": 27,
+    "freshcart-backend": 199,
+    "freshcart-web": 1,
+    "GptConnecter": 0,
+    "jurytrace": 0,
+    "kindrelay": 0,
+    "linkedin-content-manager": 1,
+    "mcp-breakbench": 0,
+    "medium-blog-publisher": 0,
+    "memory-mismatch-lab": 0,
+    "polyai-dotnet": 0,
+    "postwright": 0,
+    "profile-studio": 0,
+    "pulse-signals-engine": 0,
+    "ResumeCreator": 0,
+    "resumeproof": 0,
+    "transactional-outbox-engine": 0
+  },
+  "unresearched": [
+    {
+      "name": "amasen02",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/amasen02",
+      "pushed_at": "2026-09-06T03:34:23Z"
+    },
+    {
+      "name": "AutoDrivingCarSimulation",
+      "description": "Car Simulation Program",
+      "language": "C#",
+      "stars": 0,
+      "url": "https://github.com/amasen02/AutoDrivingCarSimulation",
+      "pushed_at": "2024-04-09T03:34:18Z"
+    },
+    {
+      "name": "Banking-System",
+      "description": "Banking System",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/Banking-System",
+      "pushed_at": "2024-11-24T10:16:17Z"
+    },
+    {
+      "name": "Chinook",
+      "description": "Chinook",
+      "language": "C#",
+      "stars": 0,
+      "url": "https://github.com/amasen02/Chinook",
+      "pushed_at": "2024-03-28T19:02:54Z"
+    },
+    {
+      "name": "credcheck",
+      "description": "[Archived \u2014 superseded by amasen02/credscan] Generic secrets/credential CLI scanner prototype. Superseded by the pivoted, actively-maintained amasen02/credscan, which also scans AI coding-agent artifacts (.claude/.cursor/MCP configs) for leaked secrets \u2014 a less-saturated niche than generic secret scanning.",
+      "language": "TypeScript",
+      "stars": 0,
+      "url": "https://github.com/amasen02/credcheck",
+      "pushed_at": "2026-07-03T10:00:05Z"
+    },
+    {
+      "name": "GptConnecter",
+      "description": "",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/amasen02/GptConnecter",
+      "pushed_at": "2024-04-05T21:15:58Z"
+    },
+    {
+      "name": "linkedin-content-manager",
+      "description": "Stage LinkedIn posts through a review lifecycle for manual posting -- never automates posting to a personal account (LinkedIn ToS). Zero runtime dependencies.",
+      "language": "Python",
+      "stars": 1,
+      "url": "https://github.com/amasen02/linkedin-content-manager",
+      "pushed_at": "2026-07-26T12:06:31Z"
+    },
+    {
+      "name": "ResumeCreator",
+      "description": "Create latex resume from json",
+      "language": "TeX",
+      "stars": 0,
+      "url": "https://github.com/amasen02/ResumeCreator",
+      "pushed_at": "2024-04-16T13:46:42Z"
+    }
+  ],
+  "merged_prs": [
+    {
+      "repo": "BerriAI/litellm",
+      "title": "fix(proxy): invalidate end-user spend counter and cache on budget reset (#39726)",
+      "url": "https://github.com/BerriAI/litellm/pull/39729",
+      "merged_at": "2026-09-05T01:36:06Z"
+    },
+    {
+      "repo": "wemake-services/django-modern-rest",
+      "title": "refactor(json): rename \\json_dump\\ to \\json_dumps\\ (#1399)",
+      "url": "https://github.com/wemake-services/django-modern-rest/pull/1400",
+      "merged_at": "2026-09-04T11:41:15Z"
+    },
+    {
+      "repo": "calibrain/shelfmark",
+      "title": "fix(postprocess): attach unmatched chaptered audio files to existing book group (#1176)",
+      "url": "https://github.com/calibrain/shelfmark/pull/1309",
+      "merged_at": "2026-09-04T15:01:56Z"
+    },
+    {
+      "repo": "schubydoo/clauster",
+      "title": "fix(config-write): skip redundant .gitignore append when existing rule covers path (#1484)",
+      "url": "https://github.com/schubydoo/clauster/pull/1485",
+      "merged_at": "2026-09-04T17:03:43Z"
+    },
+    {
+      "repo": "felladrin/MiniSearch",
+      "title": "ci: fix biome.json schema version mismatch warning (#2529)",
+      "url": "https://github.com/felladrin/MiniSearch/pull/2530",
+      "merged_at": "2026-09-03T18:26:29Z"
+    },
+    {
+      "repo": "MihaelaAghirculesei/n8n-probe",
+      "title": "test: extract shared vitest base config to de-duplicate n8n-workflow alias (#7)",
+      "url": "https://github.com/MihaelaAghirculesei/n8n-probe/pull/10",
+      "merged_at": "2026-09-04T06:42:40Z"
+    },
+    {
+      "repo": "atretyak1985/swarmery",
+      "title": "docs(skills): state negative boundaries in frontmatter descriptions (#284)",
+      "url": "https://github.com/atretyak1985/swarmery/pull/289",
+      "merged_at": "2026-09-04T12:07:25Z"
+    },
+    {
+      "repo": "theagentplane/tokenops",
+      "title": "docs(policies): point docs at docs/policies/ and document trajectory_hint exception (#68)",
+      "url": "https://github.com/theagentplane/tokenops/pull/73",
+      "merged_at": "2026-09-03T14:27:02Z"
+    },
+    {
+      "repo": "apmantza/pi-lens",
+      "title": "fix(lsp): overlap auxiliary LSP warmup with primary server during resync (#2540)",
+      "url": "https://github.com/apmantza/pi-lens/pull/2568",
+      "merged_at": "2026-09-04T19:13:50Z"
+    }
+  ]
+}
