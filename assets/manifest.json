@@ -166,9 +166,9 @@
       "file": "assets/gallery/agentic-ai.gif",
       "qualityFile": "assets/gallery/agentic-ai.gif.quality.json",
       "width": 800,
-      "height": 1100,
-      "bytes": 458630,
-      "sha256": "5b0b9fd8f09b836c404ea8cb197a60f00628ccd6b86129166c4f5c44c543315f"
+      "height": 760,
+      "bytes": 426464,
+      "sha256": "37b545f24b243bf8baa53853ee3838cb002333860fb1adc892bdb1b45b911e33"
     },
     {
       "id": "blue-green-canary-rolling",
