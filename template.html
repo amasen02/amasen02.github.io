@@ -12,7 +12,15 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="hero">
-  <div class="wrap">
+  <!-- The canvas is decorative enhancement. Every fact in the hero is in the DOM below it,
+       so the page is complete with JavaScript or WebGL unavailable. -->
+  <div class="constellation" id="constellation" aria-hidden="true">
+    <div class="cl-label" id="constellation-label" hidden>
+      <span class="cl-name"></span>
+      <span class="cl-meta"></span>
+    </div>
+  </div>
+  <div class="wrap hero-content">
     <p class="eyebrow">Ama Senevirathne</p>
     <h1>I turn correctness claims into checks a reader can run.</h1>
     <p class="hero-lede">
@@ -30,6 +38,17 @@
       <li><span class="stat-n">{{MERGED_COUNT}}</span> merged upstream fixes</li>
       <li><span class="stat-n">{{EXTERNAL_REPOS}}</span> external repos engaged</li>
     </ul>
+    <p class="cl-hint">
+      Every project and every upstream repository, drawn from live data. Drag to turn it,
+      hover a node to name it, click to jump to the project.
+    </p>
+    <ul class="legend" aria-label="Constellation legend">
+      <li><span class="dot" data-l="cs"></span>C#</li>
+      <li><span class="dot" data-l="ts"></span>TypeScript</li>
+      <li><span class="dot" data-l="js"></span>JavaScript</li>
+      <li><span class="dot" data-l="py"></span>Python</li>
+      <li><span class="dot" data-l="ext"></span>Upstream</li>
+    </ul>
     <p class="hero-links">
       <a class="btn" href="https://github.com/amasen02">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/ama-sen/">LinkedIn</a>
@@ -43,6 +62,7 @@
   <div class="wrap">
     <ul>
       <li><a href="#s-lead">Selected work</a></li>
+      <li><a href="#s-proof">The proof</a></li>
       <li><a href="#s-oss">Open source</a></li>
       <li><a href="#s-all">Everything else</a></li>
       <li><a href="diagif/">Demo</a></li>
@@ -60,6 +80,32 @@
       makes it correct, and the test or artifact that would catch it breaking.
     </p>
     <div class="leads">{{LEAD}}</div>
+  </div>
+</section>
+
+
+<section class="section proof-section" aria-labelledby="s-proof">
+  <div class="wrap">
+    <h2 id="s-proof">A claim, and the thing that checks it</h2>
+    <p class="section-lede">
+      freshcart-backend allocates invoice numbers under contention. The claim is that the
+      allocation is unique and gap-free, not a read-then-write that two callers can both win.
+      The repository proves it: twenty-five allocators fire in parallel against a real MySQL
+      instance in a container, and the test asserts the awarded set is exactly one to
+      twenty-five. Below is that race.
+    </p>
+    <figure class="proof" id="proof">
+      <canvas aria-hidden="true"></canvas>
+      <figcaption>
+        <span class="proof-status">Twenty-five allocators racing for a number.</span>
+        <button type="button" class="proof-replay">Run it again</button>
+      </figcaption>
+    </figure>
+    <p class="proof-note">
+      A picture of a race is not evidence. The evidence is
+      <a class="link" href="https://github.com/amasen02/freshcart-backend">the test in the repository</a>,
+      which fails if the invariant ever stops holding.
+    </p>
   </div>
 </section>
 
@@ -133,5 +179,7 @@
   </div>
 </footer>
 
+<script src="constellation.js" defer></script>
+<script src="motion.js" defer></script>
 </body>
 </html>
