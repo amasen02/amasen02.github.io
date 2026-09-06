@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\agent-mock-mindmap\\work\\a1\\agent-mock-mindmap\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 853689,
   "width": 800,
   "height": 1100,
   "loop": 0,
-  "bytes": 454429,
+  "bytes": 458630,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,16 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 15169,
+    "#FFFFFF": 448950,
+    "#62C7D9": 2390864,
+    "#152F37": 64088,
+    "#62D2E8": 3670643,
+    "#8CD9BF": 3245499,
+    "#F5B35D": 3237437,
+    "#E880B5": 2985274
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/agent-mock-mindmap/agent-mock-mindmap.gif.contact.png"
 }

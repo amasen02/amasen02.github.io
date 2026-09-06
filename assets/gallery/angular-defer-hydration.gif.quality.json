@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\angular-defer-hydration\\work\\a1\\angular-defer-hydration\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 797032,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 112941,
+  "bytes": 112959,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,18 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 427126,
+    "#FFFFFF": 794940,
+    "#62D2E8": 8454450,
+    "#152F37": 100378,
+    "#36555D": 89242,
+    "#F5B35D": 3557500,
+    "#8CD9BF": 9080337,
+    "#22D3EE": 8400,
+    "#A6E3CE": 14599,
+    "#A6C7C8": 57300
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/angular-defer-hydration/angular-defer-hydration.gif.contact.png"
 }

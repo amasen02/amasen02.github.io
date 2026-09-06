@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\modular-monolith\\work\\a1\\modular-monolith\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 789872,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 372682,
+  "bytes": 522961,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,18 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 321950,
+    "#FFFFFF": 832050,
+    "#F5B35D": 4960367,
+    "#152F37": 36971,
+    "#36555D": 67370,
+    "#E880B5": 2079447,
+    "#8CD9BF": 4850449,
+    "#62D2E8": 2107354,
+    "#A6C7C8": 69450,
+    "#07383E": 300641
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/modular-monolith/modular-monolith.gif.contact.png"
 }

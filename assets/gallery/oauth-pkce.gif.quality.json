@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\oauth-pkce\\work\\a1\\oauth-pkce\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 778930,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 505123,
+  "bytes": 378081,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,16 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 487034,
+    "#FFFFFF": 741057,
+    "#62D2E8": 4938466,
+    "#152F37": 50639,
+    "#36555D": 68245,
+    "#F5B35D": 4625322,
+    "#8CD9BF": 6905029,
+    "#A6C7C8": 26550
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/oauth-pkce/oauth-pkce.gif.contact.png"
 }

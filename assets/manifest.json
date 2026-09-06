@@ -152,12 +152,6 @@
       "file": "assets/scenes/modular-monolith.json"
     },
     {
-      "id": "solid-before-after",
-      "title": "Single responsibility before and after",
-      "domain": "SOLID",
-      "file": "assets/scenes/solid-before-after.json"
-    },
-    {
       "id": "agent-mock-mindmap",
       "title": "Agentic AI control loop",
       "domain": "Mind map",
@@ -173,8 +167,8 @@
       "qualityFile": "assets/gallery/agentic-ai.gif.quality.json",
       "width": 800,
       "height": 1100,
-      "bytes": 454429,
-      "sha256": "b133d0700eb6b253e80856eb0c302a69d11c8e9f820e26cccf3c575444ed7dc1"
+      "bytes": 458630,
+      "sha256": "5b0b9fd8f09b836c404ea8cb197a60f00628ccd6b86129166c4f5c44c543315f"
     },
     {
       "id": "blue-green-canary-rolling",
@@ -184,8 +178,8 @@
       "qualityFile": "assets/gallery/blue-green-canary-rolling.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 254201,
-      "sha256": "f65a458362bf5de3689671df834cbfba2bffcde9b4ef8916f9eff8993dd4310c"
+      "bytes": 249134,
+      "sha256": "c293ce98d6ad2d1ce27947c7b33fb728685928f6e1c60a3654f0b4a398e44ef8"
     },
     {
       "id": "mcp-vs-skills",
@@ -206,8 +200,8 @@
       "qualityFile": "assets/gallery/oauth-pkce.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 505123,
-      "sha256": "a969b44430d3ad455f04512a73e8e684d62d4c95f536e7517e65c8fba42a2d7e"
+      "bytes": 378081,
+      "sha256": "b5d614f739da5f15134123416db71fe2e555d13013cf51debc60fea59c2be706"
     },
     {
       "id": "rest-cursor-pagination",
@@ -217,8 +211,8 @@
       "qualityFile": "assets/gallery/rest-cursor-pagination.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 110135,
-      "sha256": "2db8caca656031c005080c632004d8a416176a027691eb41b5a9034b7c3a264e"
+      "bytes": 109040,
+      "sha256": "6e1e98eb43ddc26d5177d901f9e99af5acc740c0506697f772238797941be4be"
     },
     {
       "id": "sql-leftmost-prefix",
@@ -228,8 +222,8 @@
       "qualityFile": "assets/gallery/sql-leftmost-prefix.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 193347,
-      "sha256": "57253480721324d69d7aa42609b325f3b96f0a40d488c58e9935867c42d771a4"
+      "bytes": 199205,
+      "sha256": "47f654169477e28e8c2aa6c5abcff16018a07b58983c341facc34236874510cb"
     },
     {
       "id": "angular-defer-hydration",
@@ -239,8 +233,8 @@
       "qualityFile": "assets/gallery/angular-defer-hydration.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 112941,
-      "sha256": "ec285f1c4f8f235cea270057c128589c8a7a4e0a545aef8ca16bf7e36fa4c811"
+      "bytes": 112959,
+      "sha256": "f28911dcc3a5a76d29612770828af60d93019129797f7424b8973787ab7f5927"
     },
     {
       "id": "dotnet-di-lifetimes",
@@ -250,8 +244,8 @@
       "qualityFile": "assets/gallery/dotnet-di-lifetimes.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 378084,
-      "sha256": "7f384d233d336bf2dbd2f64e81efd9460f41727bd94928a81b3d85764205cc0d"
+      "bytes": 464789,
+      "sha256": "1aa2a450035cb064f254f2c3ee2db16906a848dbbee872f782cf6b07393cf57e"
     },
     {
       "id": "serverless-containers-vms",
@@ -261,8 +255,8 @@
       "qualityFile": "assets/gallery/serverless-containers-vms.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 370305,
-      "sha256": "82e4a09e121e42a369b104afe55f265d6ef28410bfe475f4e2ce650798517a95"
+      "bytes": 199013,
+      "sha256": "9d22c83e876df2be766d744d262b91c8c285db4b4ec5d38a2aba3a1f0b9e919d"
     },
     {
       "id": "modular-monolith",
@@ -272,19 +266,8 @@
       "qualityFile": "assets/gallery/modular-monolith.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 372682,
-      "sha256": "5c0cc6b6327c9b205891af4bfe7eb9f8e52cff161a37c31e4061a1ddb31530a7"
-    },
-    {
-      "id": "solid-before-after",
-      "title": "One reason to change",
-      "domain": "SOLID",
-      "file": "assets/gallery/solid-before-after.gif",
-      "qualityFile": "assets/gallery/solid-before-after.gif.quality.json",
-      "width": 800,
-      "height": 1000,
-      "bytes": 131409,
-      "sha256": "bcbf36fb7f2c040142f806e2b232bcd37522bcf6158bf3f8680c77fb8f6252ea"
+      "bytes": 522961,
+      "sha256": "4714daa33d805b5f656bea707458aa11866b61b857cfba5737422ff6bad267f6"
     },
     {
       "id": "graphrag-vs-vector-rag",
@@ -294,8 +277,8 @@
       "qualityFile": "assets/gallery/graphrag-vs-vector-rag.gif.quality.json",
       "width": 800,
       "height": 1000,
-      "bytes": 414627,
-      "sha256": "170001d88da657adf51418b4285b24207d09cf385c054b1cd9416ddcc0e0b801"
+      "bytes": 411495,
+      "sha256": "4ce1b6ec7a43a022fcc449411b4bf546ae06684e2332df1c46f634b0deff6ee4"
     }
   ]
 }

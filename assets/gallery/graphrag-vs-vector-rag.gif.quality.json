@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 200,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\graphrag-vs-vector-rag\\work\\a1\\graphrag-vs-vector-rag\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 782626,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 414627,
+  "bytes": 411495,
   "frames": 200,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,18 @@
   },
   "totalMs": 8000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 509292,
+    "#FFFFFF": 1044549,
+    "#D9E3E6": 2867807,
+    "#152F37": 61232,
+    "#36555D": 25536,
+    "#62D2E8": 8073725,
+    "#F5B35D": 7104087,
+    "#8CD9BF": 2671400,
+    "#A6C7C8": 97608,
+    "#07383E": 250468
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/graphrag-vs-vector-rag/graphrag-vs-vector-rag.gif.contact.png"
 }

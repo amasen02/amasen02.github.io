@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 175,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\rest-cursor-pagination\\work\\a1\\rest-cursor-pagination\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 797788,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 110135,
+  "bytes": 109040,
   "frames": 175,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,19 @@
   },
   "totalMs": 7000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 376860,
+    "#FFFFFF": 946925,
+    "#F5B35D": 3004483,
+    "#152F37": 182251,
+    "#36555D": 90683,
+    "#F68B87": 4644325,
+    "#8CD9BF": 5656519,
+    "#89D5A6": 2392824,
+    "#A6C7C8": 45500,
+    "#07383E": 528317,
+    "#D9E3E6": 74203
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/rest-cursor-pagination/rest-cursor-pagination.gif.contact.png"
 }

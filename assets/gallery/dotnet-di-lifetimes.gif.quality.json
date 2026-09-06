@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\dotnet-di-lifetimes\\work\\a1\\dotnet-di-lifetimes\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 776385,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 378084,
+  "bytes": 464789,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,23 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 462147,
+    "#FFFFFF": 762746,
+    "#62D2E8": 9279345,
+    "#152F37": 79665,
+    "#36555D": 46639,
+    "#D9E3E6": 2489630,
+    "#F5B35D": 3681269,
+    "#8CD9BF": 3657385,
+    "#42CBEA": 4800,
+    "#75D6B4": 4803,
+    "#F6AC65": 2411,
+    "#DC80B1": 6600,
+    "#147D92": 191552,
+    "#AC6411": 148500,
+    "#A6C7C8": 86852
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/dotnet-di-lifetimes/dotnet-di-lifetimes.gif.contact.png"
 }

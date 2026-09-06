@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\blue-green-canary-rolling\\work\\a1\\blue-green-canary-rolling\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 791012,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 254201,
+  "bytes": 249134,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,24 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 516219,
+    "#FFFFFF": 1304808,
+    "#62D2E8": 5702658,
+    "#152F37": 78817,
+    "#36555D": 154193,
+    "#8CD9BF": 3690908,
+    "#F5B35D": 3808882,
+    "#F68B87": 2071361,
+    "#E880B5": 1984170,
+    "#238AB8": 41850,
+    "#30B991": 15600,
+    "#D79432": 10063,
+    "#E2B95E": 17070,
+    "#705FB4": 53250,
+    "#A6C7C8": 83103,
+    "#D9E3E6": 106790
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/blue-green-canary-rolling/blue-green-canary-rolling.gif.contact.png"
 }

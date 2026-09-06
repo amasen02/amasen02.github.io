@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 175,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\sql-leftmost-prefix\\work\\a1\\sql-leftmost-prefix\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 793224,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 193347,
+  "bytes": 199205,
   "frames": 175,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,18 @@
   },
   "totalMs": 7000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 379874,
+    "#FFFFFF": 1078703,
+    "#62D2E8": 2866675,
+    "#152F37": 82929,
+    "#36555D": 47084,
+    "#F5B35D": 6885475,
+    "#8CD9BF": 6666383,
+    "#A6C7C8": 29226,
+    "#07383E": 162793,
+    "#D9E3E6": 99231
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/sql-leftmost-prefix/sql-leftmost-prefix.gif.contact.png"
 }

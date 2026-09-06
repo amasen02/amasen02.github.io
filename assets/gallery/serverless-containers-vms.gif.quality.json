@@ -1,11 +1,14 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 150,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\serverless-containers-vms\\work\\a1\\serverless-containers-vms\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 779983,
   "width": 800,
   "height": 1000,
   "loop": 0,
-  "bytes": 370305,
+  "bytes": 199013,
   "frames": 150,
   "mergedFrames": 0,
   "delays": {
@@ -13,5 +16,18 @@
   },
   "totalMs": 6000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 691422,
+    "#FFFFFF": 787651,
+    "#62D2E8": 6066513,
+    "#152F37": 37465,
+    "#36555D": 159305,
+    "#F5B35D": 6392775,
+    "#8CD9BF": 6053250,
+    "#A6C7C8": 19200,
+    "#07383E": 243622,
+    "#D9E3E6": 127206
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/serverless-containers-vms/serverless-containers-vms.gif.contact.png"
 }

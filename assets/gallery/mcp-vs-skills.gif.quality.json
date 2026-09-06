@@ -1,7 +1,10 @@
 {
   "failures": [],
+  "warnings": [],
   "expectedFrames": 100,
+  "seamPath": "C:\\cortex\\tools\\tech-gifs\\out\\gallery-v2\\mcp-vs-skills\\work\\a1\\mcp-vs-skills\\frames-40\\seam.png",
   "loopSeamOk": true,
+  "maskPixels": 791280,
   "width": 800,
   "height": 1000,
   "loop": 0,
@@ -13,5 +16,20 @@
   },
   "totalMs": 4000,
   "staticRegionMaxDiff": 0,
-  "flickerPixelCount": 0
+  "flickerPixelCount": 0,
+  "reservedColorHits": {
+    "#02252E": 20338,
+    "#FFFFFF": 179000,
+    "#62D2E8": 1718538,
+    "#152F37": 46420,
+    "#8CD9BF": 1754535,
+    "#F5B35D": 1685248,
+    "#03282F": 3343713,
+    "#379795": 18504,
+    "#A6C7C8": 17458,
+    "#36555D": 19819,
+    "#C6EDE0": 309800,
+    "#07383E": 108397
+  },
+  "contactSheet": "C:/cortex/tools/tech-gifs/out/gallery-v2/mcp-vs-skills/mcp-vs-skills.gif.contact.png"
 }
