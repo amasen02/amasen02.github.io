@@ -90,9 +90,13 @@
     }));
   }
 
+  const HOLD_MS = 2200;
   let runners = makeRunners();
   let started = 0;
   let raf = 0;
+  let holdTimer = 0;
+  let paused = false;
+  let visible = false;
 
   function draw(now) {
     const { w, h } = sizeCanvas();
@@ -141,7 +145,15 @@
       status.classList.toggle('done', settledCount === RUNNERS);
     }
 
-    if (settledCount < RUNNERS) raf = requestAnimationFrame(draw);
+    if (settledCount < RUNNERS) {
+      raf = requestAnimationFrame(draw);
+      return;
+    }
+    // Hold the settled result long enough to read, then race again. The point of the loop is
+    // that the awarded set comes out {1..25} every time, not just the once you happened to see.
+    if (!paused) {
+      holdTimer = setTimeout(() => { if (!paused && visible) restart(); }, HOLD_MS);
+    }
   }
 
   function renderStatic() {
@@ -164,27 +176,49 @@
     }
   }
 
+  function stop() {
+    cancelAnimationFrame(raf);
+    clearTimeout(holdTimer);
+    raf = 0; holdTimer = 0;
+  }
+
+  function restart() {
+    stop();
+    runners = makeRunners();
+    started = performance.now();
+    raf = requestAnimationFrame(draw);
+  }
+
   if (reduce) { renderStatic(); return; }
 
+  // Keep observing rather than unobserving after the first hit: the loop should stop when the
+  // figure scrolls away and pick up again when it returns, instead of animating unseen.
   const proofIo = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      cancelAnimationFrame(raf);
-      runners = makeRunners();
-      started = performance.now();
-      raf = requestAnimationFrame(draw);
-      proofIo.unobserve(entry.target);
+      visible = entry.isIntersecting;
+      if (visible && !paused) restart();
+      else if (!visible) stop();
     });
   }, { threshold: 0.35 });
   proofIo.observe(proof);
 
+  // A continuously moving figure needs an off switch, so the replay button becomes pause.
   const replay = proof.querySelector('.proof-replay');
   if (replay) {
+    replay.textContent = 'Pause';
+    replay.setAttribute('aria-pressed', 'false');
     replay.addEventListener('click', () => {
-      cancelAnimationFrame(raf);
-      runners = makeRunners();
-      started = performance.now();
-      raf = requestAnimationFrame(draw);
+      paused = !paused;
+      replay.textContent = paused ? 'Resume' : 'Pause';
+      replay.setAttribute('aria-pressed', String(paused));
+      if (paused) stop();
+      else if (visible) restart();
     });
   }
+
+  // A backgrounded tab should not keep a timer alive.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else if (visible && !paused) restart();
+  });
 })();
