@@ -1,28 +1,16 @@
-# diagif demo site
+# amasen02.github.io
 
-Static demo for [diagif](https://github.com/amasen02/diagif). It has no build step and makes no runtime requests outside this directory. The live playground loads normalized scenes from `assets/manifest.json` and mounts them through the bundled renderer.
+Portfolio for Ama Senevirathne, plus the interactive `diagif` demo at `/diagif/`.
 
-The quickstart shown on the page assumes the source dependencies from diagif's own README are installed and `npm link` has exposed the checkout's `diagif` binary. `diagif auth --login codex` is the wrapper equivalent of running `codex login` directly.
+`index.html` is generated. Do not edit it by hand:
 
-## Serve locally
-
-A local HTTP server is required because the page fetches the manifest and scene JSON files.
-
-From the repository checkout, run:
-
-```sh
-python -m http.server 4173
+```
+python build.py
 ```
 
-Then open <http://localhost:4173/>.
+`build.py` reads `data/research.json` and `template.html`. Every project description and
+figure on the page comes from that data file, which was extracted by reading each repository
+and the GitHub API, so a claim on the page can always be traced back to its source.
 
-The manifest format is:
-
-```json
-{
-  "scenes": [{ "id": "scene-id", "title": "Scene title", "domain": "Domain", "file": "assets/scenes/scene-id.json" }],
-  "gallery": [{ "id": "scene-id", "title": "Scene title", "domain": "Domain", "file": "assets/gallery/scene-id.gif" }]
-}
-```
-
-All file paths are relative to the site root. Keep `assets/renderer.js`, `assets/fonts.css`, scene JSON, and GIF files local so the demo remains self-contained.
+The site makes zero external runtime requests. Fonts are self-hosted under `assets/fonts/`.
+Every `http(s)` reference in the output is a link target, never an asset.

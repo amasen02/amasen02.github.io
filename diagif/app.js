@@ -93,8 +93,13 @@
     canvasShell.setAttribute('aria-busy', String(!isError));
   }
 
+  // The demo lives at /diagif/ but the manifest stores paths relative to the site root
+  // ("assets/scenes/..."), so resolve every asset against the parent directory rather than
+  // against this page. Fixing the base once keeps each call site unchanged.
+  const ASSET_BASE = new URL('../', document.baseURI);
+
   function fileUrl(file) {
-    return new URL(file, document.baseURI).href;
+    return new URL(file, ASSET_BASE).href;
   }
 
   async function loadRendererFonts() {

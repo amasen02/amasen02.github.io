@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ama Senevirathne — backend systems, developer CLIs, agent tooling</title>
+<meta name="description" content="Public engineering work by Ama Senevirathne: a twelve-service .NET platform with concurrency proven by tests, systems-level developer CLIs, and agent tooling that verifies its own output.">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Ama Senevirathne</p>
+    <h1>I turn correctness claims into checks a reader can run.</h1>
+    <p class="hero-lede">
+      Backend systems, developer command-line tools and agent tooling across .NET, TypeScript
+      and Python. The through-line in the public code is that a guarantee is only worth
+      stating if something in the repository fails when it stops being true: twenty-five
+      parallel invoice allocators asserting the result set is exactly one to twenty-five with
+      no gaps, a segmented downloader proving its parallel assembly is byte-identical to a
+      serial one, an agent pipeline decoding its own output file rather than trusting the
+      encoder.
+    </p>
+    <ul class="stats" aria-label="Summary of public work">
+      <li><span class="stat-n">{{REPO_COUNT}}</span> public projects</li>
+      <li><span class="stat-n">{{STARS}}</span> stars</li>
+      <li><span class="stat-n">{{MERGED_COUNT}}</span> merged upstream fixes</li>
+      <li><span class="stat-n">{{EXTERNAL_REPOS}}</span> external repos engaged</li>
+    </ul>
+    <p class="hero-links">
+      <a class="btn" href="https://github.com/amasen02">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/ama-sen/">LinkedIn</a>
+      <a class="btn ghost" href="diagif/">Interactive demo</a>
+    </p>
+  </div>
+</header>
+
+
+<nav class="subnav" aria-label="Sections">
+  <div class="wrap">
+    <ul>
+      <li><a href="#s-lead">Selected work</a></li>
+      <li><a href="#s-oss">Open source</a></li>
+      <li><a href="#s-all">Everything else</a></li>
+      <li><a href="diagif/">Demo</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="section" aria-labelledby="s-lead">
+  <div class="wrap">
+    <h2 id="s-lead">Selected work</h2>
+    <p class="section-lede">
+      Four projects that reward reading the code. Each one names the specific mechanism that
+      makes it correct, and the test or artifact that would catch it breaking.
+    </p>
+    <div class="leads">{{LEAD}}</div>
+  </div>
+</section>
+
+<section class="section alt" aria-labelledby="s-oss">
+  <div class="wrap">
+    <h2 id="s-oss">Open source</h2>
+    <p class="section-lede">
+      {{MERGED_COUNT}} pull requests merged into projects maintained by other people. One of
+      those is in a major project; the rest are in smaller ones. That distinction matters, so
+      it is stated here rather than left to be discovered.
+    </p>
+    <div class="oss">
+      <article class="lead">
+        <header class="lead-head">
+          <h3>BerriAI/litellm</h3>
+          <p class="tagline">Stale spend counters kept returning HTTP 429 after a budget window had rolled over.</p>
+        </header>
+        <p class="lede">
+          A production LLM gateway with more than fifty thousand stars. Resetting an end-user
+          budget cleared the spend in Postgres but left the cached counter alive on other
+          workers and replicas, so requests kept being rejected against a budget that had
+          already reset. The fix invalidates the counter across the cache tier, and ships with
+          dedicated regression tests and a documented two-replica reproduction.
+        </p>
+        <p class="actions">
+          <a class="link" href="https://github.com/BerriAI/litellm/pulls?q=is%3Apr+author%3Aamasen02">Pull requests</a>
+        </p>
+      </article>
+      <div class="block">
+        <h4>All merged pull requests</h4>
+        <ul class="merged">{{MERGED}}</ul>
+      </div>
+      <div class="block">
+        <h4>Submitted and awaiting review</h4>
+        <p>
+          A further {{OPEN_COUNT}} pull requests are open and not yet reviewed, across projects
+          including LangGraph, Milvus, CrewAI, AutoGPT, both Model Context Protocol SDKs,
+          Apache Lucene.NET, Twisted, Starlette and Prometheus. They are listed here as
+          submitted work, not as accepted work.
+        </p>
+        <p class="actions">
+          <a class="link" href="https://github.com/pulls?q=is%3Apr+author%3Aamasen02+-user%3Aamasen02">See every pull request</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="s-all">
+  <div class="wrap">
+    <h2 id="s-all">Everything else</h2>
+    <p class="section-lede">
+      The rest of the public work, grouped by what it is for. Every card links to source.
+    </p>
+    {{THEMES}}
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>
+      <a class="link" href="https://github.com/amasen02">github.com/amasen02</a>
+      <a class="link" href="https://www.linkedin.com/in/ama-sen/">linkedin.com/in/ama-sen</a>
+    </p>
+    <p class="fine">
+      Every figure on this page is read from the GitHub API and every project description from
+      the repository it describes.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
