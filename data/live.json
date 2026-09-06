@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-06T13:54:02+00:00",
+  "generated_at": "2026-09-06T13:58:31+00:00",
   "repo_count": 32,
   "total_stars": 345,
-  "external_repo_count": 42,
-  "pr_total": 57,
+  "external_repo_count": 41,
+  "pr_total": 56,
   "pr_merged": 9,
-  "pr_open": 34,
+  "pr_open": 33,
   "pr_closed_unmerged": 14,
   "stars": {
     "a11y-scope": 1,
