@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-06T13:58:31+00:00",
-  "repo_count": 32,
-  "total_stars": 345,
+  "generated_at": "2026-09-07T10:22:32+00:00",
+  "repo_count": 16,
+  "total_stars": 348,
   "external_repo_count": 41,
   "pr_total": 56,
   "pr_merged": 9,
@@ -13,33 +13,17 @@
     "amasen02.github.io": 0,
     "AutoDrivingCarSimulation": 0,
     "Banking-System": 0,
-    "centaurloop-agent-governor": 0,
-    "Chinook": 0,
-    "citation-drift-lab": 0,
-    "concurrent-cache-dotnet9": 0,
     "credcheck": 0,
     "credscan": 1,
     "diagif": 0,
     "dupehunter": 23,
     "dupesweep": 92,
-    "ebpf-credscan-security": 0,
-    "fastdl": 27,
-    "freshcart-backend": 199,
+    "fastdl": 28,
+    "freshcart-backend": 201,
     "freshcart-web": 1,
-    "GptConnecter": 0,
-    "jurytrace": 0,
-    "kindrelay": 0,
     "linkedin-content-manager": 1,
-    "mcp-breakbench": 0,
     "medium-blog-publisher": 0,
-    "memory-mismatch-lab": 0,
-    "polyai-dotnet": 0,
-    "postwright": 0,
-    "profile-studio": 0,
-    "pulse-signals-engine": 0,
-    "ResumeCreator": 0,
-    "resumeproof": 0,
-    "transactional-outbox-engine": 0
+    "polyai-dotnet": 0
   },
   "unresearched": [
     {
@@ -48,7 +32,7 @@
       "language": "",
       "stars": 0,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-06T03:34:23Z"
+      "pushed_at": "2026-09-07T03:34:16Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -67,28 +51,12 @@
       "pushed_at": "2024-11-24T10:16:17Z"
     },
     {
-      "name": "Chinook",
-      "description": "Chinook",
-      "language": "C#",
-      "stars": 0,
-      "url": "https://github.com/amasen02/Chinook",
-      "pushed_at": "2024-03-28T19:02:54Z"
-    },
-    {
       "name": "credcheck",
       "description": "[Archived \u2014 superseded by amasen02/credscan] Generic secrets/credential CLI scanner prototype. Superseded by the pivoted, actively-maintained amasen02/credscan, which also scans AI coding-agent artifacts (.claude/.cursor/MCP configs) for leaked secrets \u2014 a less-saturated niche than generic secret scanning.",
       "language": "TypeScript",
       "stars": 0,
       "url": "https://github.com/amasen02/credcheck",
-      "pushed_at": "2026-07-03T10:00:05Z"
-    },
-    {
-      "name": "GptConnecter",
-      "description": "",
-      "language": "JavaScript",
-      "stars": 0,
-      "url": "https://github.com/amasen02/GptConnecter",
-      "pushed_at": "2024-04-05T21:15:58Z"
+      "pushed_at": "2026-09-06T17:28:26Z"
     },
     {
       "name": "linkedin-content-manager",
@@ -96,15 +64,7 @@
       "language": "Python",
       "stars": 1,
       "url": "https://github.com/amasen02/linkedin-content-manager",
-      "pushed_at": "2026-07-26T12:06:31Z"
-    },
-    {
-      "name": "ResumeCreator",
-      "description": "Create latex resume from json",
-      "language": "TeX",
-      "stars": 0,
-      "url": "https://github.com/amasen02/ResumeCreator",
-      "pushed_at": "2024-04-16T13:46:42Z"
+      "pushed_at": "2026-09-06T17:12:32Z"
     }
   ],
   "merged_prs": [
