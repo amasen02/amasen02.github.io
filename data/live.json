@@ -1,44 +1,50 @@
 {
-  "generated_at": "2026-09-07T10:22:32+00:00",
-  "repo_count": 16,
-  "total_stars": 348,
+  "generated_at": "2026-09-08T09:44:25+00:00",
+  "repo_count": 22,
+  "total_stars": 394,
   "external_repo_count": 41,
   "pr_total": 56,
-  "pr_merged": 9,
-  "pr_open": 33,
-  "pr_closed_unmerged": 14,
+  "pr_merged": 10,
+  "pr_open": 31,
+  "pr_closed_unmerged": 15,
   "stars": {
-    "a11y-scope": 1,
-    "amasen02": 0,
-    "amasen02.github.io": 0,
-    "AutoDrivingCarSimulation": 0,
-    "Banking-System": 0,
-    "credcheck": 0,
-    "credscan": 1,
-    "diagif": 0,
-    "dupehunter": 23,
-    "dupesweep": 92,
-    "fastdl": 28,
-    "freshcart-backend": 201,
-    "freshcart-web": 1,
-    "linkedin-content-manager": 1,
-    "medium-blog-publisher": 0,
-    "polyai-dotnet": 0
+    "a11y-scope": 3,
+    "amasen02": 2,
+    "amasen02.github.io": 2,
+    "AutoDrivingCarSimulation": 2,
+    "Banking-System": 2,
+    "citation-drift-lab": 2,
+    "credcheck": 2,
+    "credscan": 3,
+    "diagif": 2,
+    "dupehunter": 25,
+    "dupesweep": 94,
+    "fastdl": 31,
+    "freshcart-backend": 204,
+    "freshcart-web": 3,
+    "jurytrace": 2,
+    "kindrelay": 2,
+    "linkedin-content-manager": 3,
+    "mcp-breakbench": 2,
+    "medium-blog-publisher": 2,
+    "polyai-dotnet": 2,
+    "postwright": 2,
+    "resumeproof": 2
   },
   "unresearched": [
     {
       "name": "amasen02",
       "description": "",
       "language": "",
-      "stars": 0,
+      "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-07T03:34:16Z"
+      "pushed_at": "2026-09-08T03:38:58Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
       "description": "Car Simulation Program",
       "language": "C#",
-      "stars": 0,
+      "stars": 2,
       "url": "https://github.com/amasen02/AutoDrivingCarSimulation",
       "pushed_at": "2024-04-09T03:34:18Z"
     },
@@ -46,7 +52,7 @@
       "name": "Banking-System",
       "description": "Banking System",
       "language": "",
-      "stars": 0,
+      "stars": 2,
       "url": "https://github.com/amasen02/Banking-System",
       "pushed_at": "2024-11-24T10:16:17Z"
     },
@@ -54,7 +60,7 @@
       "name": "credcheck",
       "description": "[Archived \u2014 superseded by amasen02/credscan] Generic secrets/credential CLI scanner prototype. Superseded by the pivoted, actively-maintained amasen02/credscan, which also scans AI coding-agent artifacts (.claude/.cursor/MCP configs) for leaked secrets \u2014 a less-saturated niche than generic secret scanning.",
       "language": "TypeScript",
-      "stars": 0,
+      "stars": 2,
       "url": "https://github.com/amasen02/credcheck",
       "pushed_at": "2026-09-06T17:28:26Z"
     },
@@ -62,7 +68,7 @@
       "name": "linkedin-content-manager",
       "description": "Stage LinkedIn posts through a review lifecycle for manual posting -- never automates posting to a personal account (LinkedIn ToS). Zero runtime dependencies.",
       "language": "Python",
-      "stars": 1,
+      "stars": 3,
       "url": "https://github.com/amasen02/linkedin-content-manager",
       "pushed_at": "2026-09-06T17:12:32Z"
     }
@@ -85,6 +91,12 @@
       "title": "fix(postprocess): attach unmatched chaptered audio files to existing book group (#1176)",
       "url": "https://github.com/calibrain/shelfmark/pull/1309",
       "merged_at": "2026-09-04T15:01:56Z"
+    },
+    {
+      "repo": "plur-ai/plur",
+      "title": "fix(recall): return bare operable engram IDs and enable remote forget (#1119)",
+      "url": "https://github.com/plur-ai/plur/pull/1122",
+      "merged_at": "2026-09-08T07:49:16Z"
     },
     {
       "repo": "schubydoo/clauster",
