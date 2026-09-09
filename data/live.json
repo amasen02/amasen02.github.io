@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-08T09:44:25+00:00",
-  "repo_count": 22,
+  "generated_at": "2026-09-09T09:49:26+00:00",
+  "repo_count": 25,
   "total_stars": 394,
   "external_repo_count": 41,
-  "pr_total": 56,
-  "pr_merged": 10,
-  "pr_open": 31,
-  "pr_closed_unmerged": 15,
+  "pr_total": 61,
+  "pr_merged": 13,
+  "pr_open": 30,
+  "pr_closed_unmerged": 18,
   "stars": {
     "a11y-scope": 3,
     "amasen02": 2,
@@ -16,19 +16,22 @@
     "citation-drift-lab": 2,
     "credcheck": 2,
     "credscan": 3,
+    "data-detective": 0,
     "diagif": 2,
     "dupehunter": 25,
     "dupesweep": 94,
-    "fastdl": 31,
-    "freshcart-backend": 204,
+    "fastdl": 30,
+    "freshcart-backend": 205,
     "freshcart-web": 3,
     "jurytrace": 2,
     "kindrelay": 2,
     "linkedin-content-manager": 3,
+    "living-ecosystem": 0,
     "mcp-breakbench": 2,
     "medium-blog-publisher": 2,
     "polyai-dotnet": 2,
     "postwright": 2,
+    "probability-detective": 0,
     "resumeproof": 2
   },
   "unresearched": [
@@ -38,7 +41,7 @@
       "language": "",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-08T03:38:58Z"
+      "pushed_at": "2026-09-09T06:36:16Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -65,15 +68,51 @@
       "pushed_at": "2026-09-06T17:28:26Z"
     },
     {
+      "name": "data-detective",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/amasen02/data-detective",
+      "pushed_at": "2026-09-09T06:36:14Z"
+    },
+    {
       "name": "linkedin-content-manager",
       "description": "Stage LinkedIn posts through a review lifecycle for manual posting -- never automates posting to a personal account (LinkedIn ToS). Zero runtime dependencies.",
       "language": "Python",
       "stars": 3,
       "url": "https://github.com/amasen02/linkedin-content-manager",
       "pushed_at": "2026-09-06T17:12:32Z"
+    },
+    {
+      "name": "living-ecosystem",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/amasen02/living-ecosystem",
+      "pushed_at": "2026-09-09T08:50:21Z"
+    },
+    {
+      "name": "probability-detective",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/amasen02/probability-detective",
+      "pushed_at": "2026-09-09T09:46:49Z"
     }
   ],
   "merged_prs": [
+    {
+      "repo": "Arize-ai/phoenix",
+      "title": "fix(server): remove PEP 765 return in finally from playground_users.get_user",
+      "url": "https://github.com/Arize-ai/phoenix/pull/15964",
+      "merged_at": "2026-09-08T15:34:07Z"
+    },
+    {
+      "repo": "fleetdm/fleet",
+      "title": "fix(mdm): prevent windows client certificate lifetime truncation (#52601)",
+      "url": "https://github.com/fleetdm/fleet/pull/52620",
+      "merged_at": "2026-09-08T14:15:22Z"
+    },
     {
       "repo": "BerriAI/litellm",
       "title": "fix(proxy): invalidate end-user spend counter and cache on budget reset (#39726)",
@@ -121,6 +160,12 @@
       "title": "docs(skills): state negative boundaries in frontmatter descriptions (#284)",
       "url": "https://github.com/atretyak1985/swarmery/pull/289",
       "merged_at": "2026-09-04T12:07:25Z"
+    },
+    {
+      "repo": "tphakala/go-remedy",
+      "title": "ci: pin GitHub Actions to full commit SHAs (#8)",
+      "url": "https://github.com/tphakala/go-remedy/pull/9",
+      "merged_at": "2026-09-09T05:26:05Z"
     },
     {
       "repo": "theagentplane/tokenops",
