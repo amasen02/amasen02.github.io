@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-09T09:49:26+00:00",
-  "repo_count": 25,
+  "generated_at": "2026-09-10T09:47:34+00:00",
+  "repo_count": 28,
   "total_stars": 394,
   "external_repo_count": 41,
   "pr_total": 61,
-  "pr_merged": 13,
-  "pr_open": 30,
-  "pr_closed_unmerged": 18,
+  "pr_merged": 14,
+  "pr_open": 28,
+  "pr_closed_unmerged": 19,
   "stars": {
     "a11y-scope": 3,
     "amasen02": 2,
@@ -27,12 +27,15 @@
     "kindrelay": 2,
     "linkedin-content-manager": 3,
     "living-ecosystem": 0,
+    "make-ten": 0,
     "mcp-breakbench": 2,
     "medium-blog-publisher": 2,
     "polyai-dotnet": 2,
     "postwright": 2,
     "probability-detective": 0,
-    "resumeproof": 2
+    "resumeproof": 2,
+    "robinhood-hook-design": 0,
+    "shapes-garden": 0
   },
   "unresearched": [
     {
@@ -41,7 +44,7 @@
       "language": "",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-09T06:36:16Z"
+      "pushed_at": "2026-09-10T03:41:52Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -92,12 +95,36 @@
       "pushed_at": "2026-09-09T08:50:21Z"
     },
     {
+      "name": "make-ten",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/amasen02/make-ten",
+      "pushed_at": "2026-09-09T13:02:01Z"
+    },
+    {
       "name": "probability-detective",
       "description": "",
       "language": "HTML",
       "stars": 0,
       "url": "https://github.com/amasen02/probability-detective",
       "pushed_at": "2026-09-09T09:46:49Z"
+    },
+    {
+      "name": "robinhood-hook-design",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/robinhood-hook-design",
+      "pushed_at": "2026-09-09T14:38:12Z"
+    },
+    {
+      "name": "shapes-garden",
+      "description": "",
+      "language": "HTML",
+      "stars": 0,
+      "url": "https://github.com/amasen02/shapes-garden",
+      "pushed_at": "2026-09-09T14:40:03Z"
     }
   ],
   "merged_prs": [
@@ -130,6 +157,12 @@
       "title": "fix(postprocess): attach unmatched chaptered audio files to existing book group (#1176)",
       "url": "https://github.com/calibrain/shelfmark/pull/1309",
       "merged_at": "2026-09-04T15:01:56Z"
+    },
+    {
+      "repo": "apache/lucenenet",
+      "title": "chore(xml): standardize XML declaration encoding to lowercase utf-8 (#1336)",
+      "url": "https://github.com/apache/lucenenet/pull/1447",
+      "merged_at": "2026-09-09T14:00:02Z"
     },
     {
       "repo": "plur-ai/plur",
