@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-11T09:45:38+00:00",
-  "repo_count": 28,
+  "generated_at": "2026-09-12T09:24:39+00:00",
+  "repo_count": 30,
   "total_stars": 390,
-  "external_repo_count": 42,
-  "pr_total": 62,
-  "pr_merged": 14,
-  "pr_open": 29,
-  "pr_closed_unmerged": 19,
+  "external_repo_count": 43,
+  "pr_total": 74,
+  "pr_merged": 15,
+  "pr_open": 39,
+  "pr_closed_unmerged": 20,
   "stars": {
     "a11y-scope": 3,
     "amasen02": 2,
@@ -14,6 +14,7 @@
     "AutoDrivingCarSimulation": 2,
     "Banking-System": 2,
     "citation-drift-lab": 2,
+    "copilot-m3-probe": 0,
     "credcheck": 2,
     "credscan": 3,
     "data-detective": 0,
@@ -24,6 +25,7 @@
     "freshcart-backend": 203,
     "freshcart-web": 3,
     "jurytrace": 2,
+    "kai-csv-profiler-macos-test": 0,
     "kindrelay": 2,
     "linkedin-content-manager": 3,
     "living-ecosystem": 0,
@@ -44,7 +46,7 @@
       "language": "",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-11T03:39:50Z"
+      "pushed_at": "2026-09-12T03:43:43Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -63,6 +65,14 @@
       "pushed_at": "2024-11-24T10:16:17Z"
     },
     {
+      "name": "copilot-m3-probe",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/copilot-m3-probe",
+      "pushed_at": "2026-09-11T14:59:25Z"
+    },
+    {
       "name": "credcheck",
       "description": "[Archived \u2014 superseded by amasen02/credscan] Generic secrets/credential CLI scanner prototype. Superseded by the pivoted, actively-maintained amasen02/credscan, which also scans AI coding-agent artifacts (.claude/.cursor/MCP configs) for leaked secrets \u2014 a less-saturated niche than generic secret scanning.",
       "language": "TypeScript",
@@ -77,6 +87,14 @@
       "stars": 0,
       "url": "https://github.com/amasen02/data-detective",
       "pushed_at": "2026-09-09T06:36:14Z"
+    },
+    {
+      "name": "kai-csv-profiler-macos-test",
+      "description": "Commissioned macOS compatibility test for Kai CSV Profiler 0.2.3 (Taskmarket task kai-macos-8632)",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/kai-csv-profiler-macos-test",
+      "pushed_at": "2026-09-12T06:23:49Z"
     },
     {
       "name": "linkedin-content-manager",
@@ -128,6 +146,12 @@
     }
   ],
   "merged_prs": [
+    {
+      "repo": "plur-ai/plur",
+      "title": "fix(core): throw RangeError on unparseable evaluation instant (#1166)",
+      "url": "https://github.com/plur-ai/plur/pull/1176",
+      "merged_at": "2026-09-11T11:06:48Z"
+    },
     {
       "repo": "Arize-ai/phoenix",
       "title": "fix(server): remove PEP 765 return in finally from playground_users.get_user",
