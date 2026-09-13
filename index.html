@@ -33,8 +33,8 @@
       encoder.
     </p>
     <ul class="stats" aria-label="Summary of public work">
-      <li><span class="stat-n">36</span> public projects</li>
-      <li><span class="stat-n">390</span> stars</li>
+      <li><span class="stat-n">38</span> public projects</li>
+      <li><span class="stat-n">391</span> stars</li>
       <li><span class="stat-n">15</span> merged upstream fixes</li>
       <li><span class="stat-n">43</span> external repos engaged</li>
     </ul>
@@ -84,7 +84,7 @@
         <header class="lead-head">
           <h3>freshcart-backend</h3>
           <p class="tagline">Twelve .NET 10 microservices, each in a different architecture, with race conditions proven by tests</p>
-          <p class="meta"><span class="stat"><span class="stat-n">203</span> stars</span><span class="lang">C#</span></p>
+          <p class="meta"><span class="stat"><span class="stat-n">204</span> stars</span><span class="lang">C#</span></p>
         </header>
         <p class="lede">Twelve .NET services move one order, exactly once</p>
         <div class="block"><h4>How it works</h4><div class="flow-wrap"><svg class="flow" viewBox="0 0 518 164" role="img" aria-label="Twelve .NET services move one order, exactly once" preserveAspectRatio="xMidYMid meet"><defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs><path class="flow-edge" d="M150,31.0 L177,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,31.0 L361,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M443.0,62 C443.0,84 443.0,76 443.0,95" marker-end="url(#fa)"/><path class="flow-edge" d="M518,133.0 L177,133.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,133.0 L-7,133.0" marker-end="url(#fa)"/><g class="flow-node n-in" transform="translate(0,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Browser cookie</text><text class="fn-sub" x="75.0" y="43">HttpOnly, SameSite=Strict</text></g><g class="flow-node n-proc" transform="translate(184,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Gateway mints JWT</text><text class="fn-sub" x="75.0" y="43">cached per auth_time</text></g><g class="flow-node n-guard" transform="translate(368,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Partial unique index</text><text class="fn-sub" x="75.0" y="43">OrderId, Version==1</text></g><g class="flow-node n-store" transform="translate(368,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Mongo event batch</text><text class="fn-sub" x="75.0" y="43">plus projection marker</text></g><g class="flow-node n-proc" transform="translate(184,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Outbox claim drain</text><text class="fn-sub" x="75.0" y="43">leased ClaimId per row</text></g><g class="flow-node n-out" transform="translate(0,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">SQL read model</text><text class="fn-sub" x="75.0" y="43">inbox row in-transaction</text></g></svg><p class="flow-punch">A second concurrent initiate for the same order fails on a unique index in the event store.</p></div></div>
@@ -218,7 +218,7 @@
         <p class="theme-blurb">Correctness under concurrency, proven by tests rather than asserted in a README.</p>
         <div class="grid">
         <article class="card" data-theme-card>
-          <h4>freshcart-backend <span class="stat"><span class="stat-n">203</span>&#9733;</span></h4>
+          <h4>freshcart-backend <span class="stat"><span class="stat-n">204</span>&#9733;</span></h4>
           <p class="tagline">Twelve .NET services move one order, exactly once</p>
           <div class="flow-wrap"><svg class="flow" viewBox="0 0 518 164" role="img" aria-label="Twelve .NET services move one order, exactly once" preserveAspectRatio="xMidYMid meet"><defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs><path class="flow-edge" d="M150,31.0 L177,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,31.0 L361,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M443.0,62 C443.0,84 443.0,76 443.0,95" marker-end="url(#fa)"/><path class="flow-edge" d="M518,133.0 L177,133.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,133.0 L-7,133.0" marker-end="url(#fa)"/><g class="flow-node n-in" transform="translate(0,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Browser cookie</text><text class="fn-sub" x="75.0" y="43">HttpOnly, SameSite=Strict</text></g><g class="flow-node n-proc" transform="translate(184,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Gateway mints JWT</text><text class="fn-sub" x="75.0" y="43">cached per auth_time</text></g><g class="flow-node n-guard" transform="translate(368,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Partial unique index</text><text class="fn-sub" x="75.0" y="43">OrderId, Version==1</text></g><g class="flow-node n-store" transform="translate(368,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Mongo event batch</text><text class="fn-sub" x="75.0" y="43">plus projection marker</text></g><g class="flow-node n-proc" transform="translate(184,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Outbox claim drain</text><text class="fn-sub" x="75.0" y="43">leased ClaimId per row</text></g><g class="flow-node n-out" transform="translate(0,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">SQL read model</text><text class="fn-sub" x="75.0" y="43">inbox row in-transaction</text></g></svg><p class="flow-punch">A second concurrent initiate for the same order fails on a unique index in the event store.</p></div>
           
@@ -430,7 +430,7 @@
           <p class="tagline">Recently published; write-up pending.</p>
           <p></p>
           
-          <ul class="chips"></ul>
+          <ul class="chips"><li class="chip">Python</li></ul>
           <p class="actions"><a class="link" href="https://github.com/amasen02/amasen02">Source</a></p>
         </article>
         <article class="card" data-theme-card>
@@ -472,6 +472,22 @@
           
           <ul class="chips"><li class="chip">HTML</li></ul>
           <p class="actions"><a class="link" href="https://github.com/amasen02/data-detective">Source</a></p>
+        </article>
+        <article class="card" data-theme-card>
+          <h4>gaincheck </h4>
+          <p class="tagline">Check compressed coding-agent output for lost signals and misleading baselines. Local, deterministic, no API key.</p>
+          <p>Check compressed coding-agent output for lost signals and misleading baselines. Local, deterministic, no API key.</p>
+          
+          <ul class="chips"><li class="chip">Python</li></ul>
+          <p class="actions"><a class="link" href="https://github.com/amasen02/gaincheck">Source</a></p>
+        </article>
+        <article class="card" data-theme-card>
+          <h4>gh-merge-doctor </h4>
+          <p class="tagline">Explain why a green pull request cannot merge. Read-only diagnostics and JSON handoffs for AI coding agents.</p>
+          <p>Explain why a green pull request cannot merge. Read-only diagnostics and JSON handoffs for AI coding agents.</p>
+          
+          <ul class="chips"><li class="chip">Go</li></ul>
+          <p class="actions"><a class="link" href="https://github.com/amasen02/gh-merge-doctor">Source</a></p>
         </article>
         <article class="card" data-theme-card>
           <h4>kai-csv-profiler-macos-test </h4>
@@ -543,7 +559,7 @@
     </p>
     <p class="fine">
       Every figure on this page is read from the GitHub API and every project description from
-      the repository it describes. Figures last refreshed <time datetime="2026-09-12">2026-09-12</time>;
+      the repository it describes. Figures last refreshed <time datetime="2026-09-13">2026-09-13</time>;
       a scheduled job re-reads them daily, so the counts here track the accounts rather than a
       snapshot taken once.
     </p>

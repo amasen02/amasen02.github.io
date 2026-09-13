@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-12T09:24:39+00:00",
-  "repo_count": 30,
-  "total_stars": 390,
+  "generated_at": "2026-09-13T10:19:15+00:00",
+  "repo_count": 32,
+  "total_stars": 391,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 15,
@@ -22,8 +22,10 @@
     "dupehunter": 23,
     "dupesweep": 94,
     "fastdl": 30,
-    "freshcart-backend": 203,
+    "freshcart-backend": 204,
     "freshcart-web": 3,
+    "gaincheck": 0,
+    "gh-merge-doctor": 0,
     "jurytrace": 2,
     "kai-csv-profiler-macos-test": 0,
     "kindrelay": 2,
@@ -43,10 +45,10 @@
     {
       "name": "amasen02",
       "description": "",
-      "language": "",
+      "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-12T03:43:43Z"
+      "pushed_at": "2026-09-13T03:51:39Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -89,12 +91,28 @@
       "pushed_at": "2026-09-09T06:36:14Z"
     },
     {
+      "name": "gaincheck",
+      "description": "Check compressed coding-agent output for lost signals and misleading baselines. Local, deterministic, no API key.",
+      "language": "Python",
+      "stars": 0,
+      "url": "https://github.com/amasen02/gaincheck",
+      "pushed_at": "2026-09-13T06:42:10Z"
+    },
+    {
+      "name": "gh-merge-doctor",
+      "description": "Explain why a green pull request cannot merge. Read-only diagnostics and JSON handoffs for AI coding agents.",
+      "language": "Go",
+      "stars": 0,
+      "url": "https://github.com/amasen02/gh-merge-doctor",
+      "pushed_at": "2026-09-13T01:00:28Z"
+    },
+    {
       "name": "kai-csv-profiler-macos-test",
       "description": "Commissioned macOS compatibility test for Kai CSV Profiler 0.2.3 (Taskmarket task kai-macos-8632)",
       "language": "",
       "stars": 0,
       "url": "https://github.com/amasen02/kai-csv-profiler-macos-test",
-      "pushed_at": "2026-09-12T06:23:49Z"
+      "pushed_at": "2026-09-12T13:25:09Z"
     },
     {
       "name": "linkedin-content-manager",
