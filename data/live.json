@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-13T10:19:15+00:00",
+  "generated_at": "2026-09-14T10:43:17+00:00",
   "repo_count": 32,
-  "total_stars": 391,
+  "total_stars": 392,
   "external_repo_count": 43,
   "pr_total": 74,
-  "pr_merged": 15,
-  "pr_open": 39,
-  "pr_closed_unmerged": 20,
+  "pr_merged": 16,
+  "pr_open": 37,
+  "pr_closed_unmerged": 21,
   "stars": {
     "a11y-scope": 3,
     "amasen02": 2,
@@ -20,7 +20,7 @@
     "data-detective": 0,
     "diagif": 2,
     "dupehunter": 23,
-    "dupesweep": 94,
+    "dupesweep": 95,
     "fastdl": 30,
     "freshcart-backend": 204,
     "freshcart-web": 3,
@@ -48,7 +48,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-13T03:51:39Z"
+      "pushed_at": "2026-09-14T07:08:08Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -80,7 +80,7 @@
       "language": "TypeScript",
       "stars": 2,
       "url": "https://github.com/amasen02/credcheck",
-      "pushed_at": "2026-09-06T17:28:26Z"
+      "pushed_at": "2026-09-14T00:35:43Z"
     },
     {
       "name": "data-detective",
@@ -164,6 +164,12 @@
     }
   ],
   "merged_prs": [
+    {
+      "repo": "MihaelaAghirculesei/n8n-probe",
+      "title": "ci: bump actions/checkout to v5 across workflows (#18)",
+      "url": "https://github.com/MihaelaAghirculesei/n8n-probe/pull/24",
+      "merged_at": "2026-09-14T06:05:41Z"
+    },
     {
       "repo": "plur-ai/plur",
       "title": "fix(core): throw RangeError on unparseable evaluation instant (#1166)",
