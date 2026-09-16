@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-15T10:07:21+00:00",
+  "generated_at": "2026-09-16T09:59:00+00:00",
   "repo_count": 32,
   "total_stars": 392,
   "external_repo_count": 43,
   "pr_total": 74,
-  "pr_merged": 16,
-  "pr_open": 36,
+  "pr_merged": 17,
+  "pr_open": 35,
   "pr_closed_unmerged": 22,
   "stars": {
     "a11y-scope": 3,
@@ -48,7 +48,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-15T03:58:12Z"
+      "pushed_at": "2026-09-16T09:51:56Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -164,6 +164,12 @@
     }
   ],
   "merged_prs": [
+    {
+      "repo": "vllm-project/vllm",
+      "title": "[Bugfix] tolerate malformed EXIF metadata during hashing (#56527)",
+      "url": "https://github.com/vllm-project/vllm/pull/56576",
+      "merged_at": "2026-09-16T07:56:51Z"
+    },
     {
       "repo": "MihaelaAghirculesei/n8n-probe",
       "title": "ci: bump actions/checkout to v5 across workflows (#18)",
