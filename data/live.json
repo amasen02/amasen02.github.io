@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-16T09:59:00+00:00",
+  "generated_at": "2026-09-17T10:02:02+00:00",
   "repo_count": 32,
-  "total_stars": 392,
+  "total_stars": 393,
   "external_repo_count": 43,
   "pr_total": 74,
-  "pr_merged": 17,
-  "pr_open": 35,
+  "pr_merged": 19,
+  "pr_open": 33,
   "pr_closed_unmerged": 22,
   "stars": {
     "a11y-scope": 3,
@@ -21,7 +21,7 @@
     "diagif": 2,
     "dupehunter": 23,
     "dupesweep": 95,
-    "fastdl": 30,
+    "fastdl": 31,
     "freshcart-backend": 204,
     "freshcart-web": 3,
     "gaincheck": 0,
@@ -48,7 +48,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-16T09:51:56Z"
+      "pushed_at": "2026-09-17T04:01:10Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -178,6 +178,12 @@
     },
     {
       "repo": "plur-ai/plur",
+      "title": "fix(vectors): pin conformance vectors to LF with .gitattributes (#1160)",
+      "url": "https://github.com/plur-ai/plur/pull/1177",
+      "merged_at": "2026-09-16T14:25:58Z"
+    },
+    {
+      "repo": "plur-ai/plur",
       "title": "fix(core): throw RangeError on unparseable evaluation instant (#1166)",
       "url": "https://github.com/plur-ai/plur/pull/1176",
       "merged_at": "2026-09-11T11:06:48Z"
@@ -265,6 +271,12 @@
       "title": "fix(lsp): overlap auxiliary LSP warmup with primary server during resync (#2540)",
       "url": "https://github.com/apmantza/pi-lens/pull/2568",
       "merged_at": "2026-09-04T19:13:50Z"
+    },
+    {
+      "repo": "floci-io/floci-ui",
+      "title": "fix(layout): wire topbar search input to search query param (#205)",
+      "url": "https://github.com/floci-io/floci-ui/pull/206",
+      "merged_at": "2026-09-16T19:04:40Z"
     }
   ]
 }
