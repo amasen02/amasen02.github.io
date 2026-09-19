@@ -34,7 +34,7 @@
     </p>
     <ul class="stats" aria-label="Summary of public work">
       <li><span class="stat-n">38</span> public projects</li>
-      <li><span class="stat-n">393</span> stars</li>
+      <li><span class="stat-n">390</span> stars</li>
       <li><span class="stat-n">19</span> merged upstream fixes</li>
       <li><span class="stat-n">43</span> external repos engaged</li>
     </ul>
@@ -123,7 +123,7 @@
         <header class="lead-head">
           <h3>dupesweep</h3>
           <p class="tagline">Duplicate-file CLI: size → 64KB-hash → full-SHA256 funnel with reversible quarantine and restore</p>
-          <p class="meta"><span class="stat"><span class="stat-n">94</span> stars</span><span class="lang">C#</span></p>
+          <p class="meta"><span class="stat"><span class="stat-n">91</span> stars</span><span class="lang">C#</span></p>
         </header>
         <p class="lede">Finds byte-identical duplicates and quarantines them reversibly</p>
         <div class="block"><h4>How it works</h4><div class="flow-wrap"><svg class="flow" viewBox="0 0 518 164" role="img" aria-label="Finds byte-identical duplicates and quarantines them reversibly" preserveAspectRatio="xMidYMid meet"><defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs><path class="flow-edge" d="M150,31.0 L177,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,31.0 L361,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M443.0,62 C443.0,84 443.0,76 443.0,95" marker-end="url(#fa)"/><path class="flow-edge" d="M518,133.0 L177,133.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,133.0 L-7,133.0" marker-end="url(#fa)"/><g class="flow-node n-in" transform="translate(0,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Directory roots</text><text class="fn-sub" x="75.0" y="43">one or more</text></g><g class="flow-node n-proc" transform="translate(184,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Group by size</text><text class="fn-sub" x="75.0" y="43">no bytes read</text></g><g class="flow-node n-proc" transform="translate(368,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">First 64KB hash</text><text class="fn-sub" x="75.0" y="43">SHA-256, parallel</text></g><g class="flow-node n-proc" transform="translate(368,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Full SHA-256</text><text class="fn-sub" x="75.0" y="43">survivors only</text></g><g class="flow-node n-store" transform="translate(184,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Quarantine move</text><text class="fn-sub" x="75.0" y="43">writes manifest.json</text></g><g class="flow-node n-guard" transform="translate(0,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Restore never overwrites</text><text class="fn-sub" x="75.0" y="43">skips occupied path</text></g></svg><p class="flow-punch">Parallel hashing writes into a pre-allocated array by index, so scan order and --keep first stay deterministic.</p></div></div>
@@ -247,7 +247,7 @@
         <p class="theme-blurb">Command-line tools where the real work is data integrity and not losing anyone&#x27;s files.</p>
         <div class="grid">
         <article class="card" data-theme-card>
-          <h4>dupesweep <span class="stat"><span class="stat-n">94</span>&#9733;</span></h4>
+          <h4>dupesweep <span class="stat"><span class="stat-n">91</span>&#9733;</span></h4>
           <p class="tagline">Finds byte-identical duplicates and quarantines them reversibly</p>
           <div class="flow-wrap"><svg class="flow" viewBox="0 0 518 164" role="img" aria-label="Finds byte-identical duplicates and quarantines them reversibly" preserveAspectRatio="xMidYMid meet"><defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs><path class="flow-edge" d="M150,31.0 L177,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,31.0 L361,31.0" marker-end="url(#fa)"/><path class="flow-edge" d="M443.0,62 C443.0,84 443.0,76 443.0,95" marker-end="url(#fa)"/><path class="flow-edge" d="M518,133.0 L177,133.0" marker-end="url(#fa)"/><path class="flow-edge" d="M334,133.0 L-7,133.0" marker-end="url(#fa)"/><g class="flow-node n-in" transform="translate(0,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Directory roots</text><text class="fn-sub" x="75.0" y="43">one or more</text></g><g class="flow-node n-proc" transform="translate(184,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Group by size</text><text class="fn-sub" x="75.0" y="43">no bytes read</text></g><g class="flow-node n-proc" transform="translate(368,0)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">First 64KB hash</text><text class="fn-sub" x="75.0" y="43">SHA-256, parallel</text></g><g class="flow-node n-proc" transform="translate(368,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Full SHA-256</text><text class="fn-sub" x="75.0" y="43">survivors only</text></g><g class="flow-node n-store" transform="translate(184,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Quarantine move</text><text class="fn-sub" x="75.0" y="43">writes manifest.json</text></g><g class="flow-node n-guard" transform="translate(0,102)"><rect width="150" height="62" rx="10"/><text class="fn-label" x="75.0" y="26">Restore never overwrites</text><text class="fn-sub" x="75.0" y="43">skips occupied path</text></g></svg><p class="flow-punch">Parallel hashing writes into a pre-allocated array by index, so scan order and --keep first stay deterministic.</p></div>
           
@@ -559,7 +559,7 @@
     </p>
     <p class="fine">
       Every figure on this page is read from the GitHub API and every project description from
-      the repository it describes. Figures last refreshed <time datetime="2026-09-18">2026-09-18</time>;
+      the repository it describes. Figures last refreshed <time datetime="2026-09-19">2026-09-19</time>;
       a scheduled job re-reads them daily, so the counts here track the accounts rather than a
       snapshot taken once.
     </p>
