@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-20T09:50:16+00:00",
+  "generated_at": "2026-09-21T10:46:28+00:00",
   "repo_count": 32,
   "total_stars": 395,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 19,
-  "pr_open": 32,
-  "pr_closed_unmerged": 23,
+  "pr_open": 29,
+  "pr_closed_unmerged": 26,
   "stars": {
     "a11y-scope": 3,
     "amasen02": 2,
@@ -48,7 +48,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-20T04:00:42Z"
+      "pushed_at": "2026-09-21T03:58:29Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -80,7 +80,7 @@
       "language": "TypeScript",
       "stars": 2,
       "url": "https://github.com/amasen02/credcheck",
-      "pushed_at": "2026-09-14T00:35:43Z"
+      "pushed_at": "2026-09-21T00:35:04Z"
     },
     {
       "name": "data-detective",
