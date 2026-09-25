@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-09-24T10:04:33+00:00",
+  "generated_at": "2026-09-25T10:13:49+00:00",
   "repo_count": 32,
-  "total_stars": 395,
+  "total_stars": 396,
   "external_repo_count": 43,
   "pr_total": 74,
-  "pr_merged": 19,
-  "pr_open": 27,
+  "pr_merged": 20,
+  "pr_open": 26,
   "pr_closed_unmerged": 28,
   "stars": {
     "a11y-scope": 3,
@@ -21,7 +21,7 @@
     "diagif": 2,
     "dupehunter": 23,
     "dupesweep": 92,
-    "fastdl": 34,
+    "fastdl": 35,
     "freshcart-backend": 206,
     "freshcart-web": 3,
     "gaincheck": 0,
@@ -48,7 +48,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-09-24T03:46:17Z"
+      "pushed_at": "2026-09-25T04:01:16Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -277,6 +277,12 @@
       "title": "fix(layout): wire topbar search input to search query param (#205)",
       "url": "https://github.com/floci-io/floci-ui/pull/206",
       "merged_at": "2026-09-16T19:04:40Z"
+    },
+    {
+      "repo": "emdash-cms/emdash",
+      "title": "fix(core): add byline to generated collection interfaces (Fixes #2888)",
+      "url": "https://github.com/emdash-cms/emdash/pull/2889",
+      "merged_at": "2026-09-24T12:32:36Z"
     }
   ]
 }
