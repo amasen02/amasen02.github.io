@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-07T11:45:23+00:00",
-  "repo_count": 32,
-  "total_stars": 421,
+  "generated_at": "2026-11-08T11:57:27+00:00",
+  "repo_count": 34,
+  "total_stars": 426,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 20,
-  "pr_open": 21,
-  "pr_closed_unmerged": 33,
+  "pr_open": 20,
+  "pr_closed_unmerged": 34,
   "stars": {
     "a11y-scope": 4,
     "amasen02": 2,
@@ -21,11 +21,13 @@
     "diagif": 2,
     "dupehunter": 22,
     "dupesweep": 47,
-    "fastdl": 75,
-    "freshcart-backend": 235,
+    "fastdl": 78,
+    "freshcart-backend": 237,
     "freshcart-web": 3,
     "gaincheck": 0,
     "gh-merge-doctor": 0,
+    "ht9-macos-poc": 0,
+    "ht9-poc": 0,
     "jurytrace": 2,
     "kai-csv-profiler-macos-test": 0,
     "kindrelay": 2,
@@ -48,7 +50,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-11-07T05:09:52Z"
+      "pushed_at": "2026-11-08T05:04:32Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -105,6 +107,22 @@
       "stars": 0,
       "url": "https://github.com/amasen02/gh-merge-doctor",
       "pushed_at": "2026-09-13T01:00:28Z"
+    },
+    {
+      "name": "ht9-macos-poc",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/ht9-macos-poc",
+      "pushed_at": "2026-11-08T09:18:57Z"
+    },
+    {
+      "name": "ht9-poc",
+      "description": "",
+      "language": "",
+      "stars": 0,
+      "url": "https://github.com/amasen02/ht9-poc",
+      "pushed_at": "2026-11-08T09:28:34Z"
     },
     {
       "name": "kai-csv-profiler-macos-test",
