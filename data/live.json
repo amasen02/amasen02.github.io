@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-17T14:29:23+00:00",
+  "generated_at": "2026-11-18T14:03:34+00:00",
   "repo_count": 34,
-  "total_stars": 461,
+  "total_stars": 462,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 20,
-  "pr_open": 18,
-  "pr_closed_unmerged": 36,
+  "pr_open": 17,
+  "pr_closed_unmerged": 37,
   "stars": {
     "a11y-scope": 4,
     "amasen02": 2,
@@ -21,7 +21,7 @@
     "diagif": 2,
     "dupehunter": 22,
     "dupesweep": 50,
-    "fastdl": 93,
+    "fastdl": 94,
     "freshcart-backend": 254,
     "freshcart-web": 3,
     "gaincheck": 0,
@@ -50,7 +50,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-11-17T07:05:01Z"
+      "pushed_at": "2026-11-18T06:28:49Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
