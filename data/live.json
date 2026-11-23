@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-22T13:23:21+00:00",
+  "generated_at": "2026-11-23T16:01:32+00:00",
   "repo_count": 34,
-  "total_stars": 468,
+  "total_stars": 474,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 20,
@@ -21,8 +21,8 @@
     "diagif": 2,
     "dupehunter": 22,
     "dupesweep": 50,
-    "fastdl": 96,
-    "freshcart-backend": 258,
+    "fastdl": 100,
+    "freshcart-backend": 260,
     "freshcart-web": 3,
     "gaincheck": 0,
     "gh-merge-doctor": 0,
@@ -50,7 +50,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-11-22T05:42:29Z"
+      "pushed_at": "2026-11-23T06:27:27Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
@@ -82,7 +82,7 @@
       "language": "TypeScript",
       "stars": 2,
       "url": "https://github.com/amasen02/credcheck",
-      "pushed_at": "2026-11-16T00:36:35Z"
+      "pushed_at": "2026-11-23T00:37:35Z"
     },
     {
       "name": "data-detective",
