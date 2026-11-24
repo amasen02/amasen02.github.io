@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-23T16:01:32+00:00",
+  "generated_at": "2026-11-24T15:55:22+00:00",
   "repo_count": 34,
-  "total_stars": 474,
+  "total_stars": 476,
   "external_repo_count": 43,
   "pr_total": 74,
   "pr_merged": 20,
@@ -20,9 +20,9 @@
     "data-detective": 0,
     "diagif": 2,
     "dupehunter": 22,
-    "dupesweep": 50,
+    "dupesweep": 49,
     "fastdl": 100,
-    "freshcart-backend": 260,
+    "freshcart-backend": 263,
     "freshcart-web": 3,
     "gaincheck": 0,
     "gh-merge-doctor": 0,
@@ -50,7 +50,7 @@
       "language": "Python",
       "stars": 2,
       "url": "https://github.com/amasen02/amasen02",
-      "pushed_at": "2026-11-23T06:27:27Z"
+      "pushed_at": "2026-11-24T08:58:04Z"
     },
     {
       "name": "AutoDrivingCarSimulation",
